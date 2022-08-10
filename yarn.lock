@@ -1728,6 +1728,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/react-query@npm:^4.0.10":
+  version: 4.0.10
+  resolution: "@tanstack/react-query@npm:4.0.10"
+  dependencies:
+    "@tanstack/query-core": ^4.0.0-beta.1
+    "@types/use-sync-external-store": ^0.0.3
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: b5f7501f977f4262fe80e510f5d58f3b49163ff7232603a839b7184431db7309c38ab55c5856a9d31a3c5219dd5031f9174e9dfcc78408300d0424b3000b9034
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:2":
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
@@ -3826,6 +3846,7 @@ __metadata:
     "@emotion/babel-plugin": ^11.10.0
     "@emotion/react": ^11.10.0
     "@emotion/styled": ^11.10.0
+    "@tanstack/react-query": ^4.0.10
     "@types/babel__core": ^7
     "@types/babel__preset-env": ^7
     "@types/eslint": ^8
@@ -3847,7 +3868,6 @@ __metadata:
     prettier: ^2.7.1
     react: ^18.2.0
     react-dom: ^18.2.0
-    react-query: ^4.0.0
     react-router-dom: ^6.3.0
     typescript: ^4.7.4
     vite: ^3.0.0
@@ -4545,26 +4565,6 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
-  languageName: node
-  linkType: hard
-
-"react-query@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "react-query@npm:4.0.0"
-  dependencies:
-    "@tanstack/query-core": ^4.0.0-beta.1
-    "@types/use-sync-external-store": ^0.0.3
-    use-sync-external-store: ^1.2.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-native: "*"
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-  checksum: 1cd6ab5c48e597a9874bac4aaf0b8ba78d0bba56bfed97bd3a876b3eddc57e463de1c7303ff02a519f076bbf2759aa81e35d7fac178699d81b16551089cdc0a2
   languageName: node
   linkType: hard
 
