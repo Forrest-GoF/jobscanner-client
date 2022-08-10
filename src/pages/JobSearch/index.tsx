@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getJobs } from '@/apis/job';
+import { useQuery, useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import { logout } from '@/apis/auth';
+import { getLocalStorageItem, KEYS, removeLocalStorageItem } from '@/utils/storage';
 
 const JobSearch = () => {
+	const { data: jobs } = useQuery(['getJobs'], getJobs);
+
 	return (
 		<div>
 			공고 리스트 페이지입니다.
