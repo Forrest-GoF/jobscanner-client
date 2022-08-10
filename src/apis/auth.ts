@@ -1,7 +1,7 @@
 import { PATH, POST } from '@/constants/api';
 import { requester } from '@/apis/requester';
 import { KEYS, setLocalStorageItem } from '@/utils/storage';
-import { LoginResponse } from '@/types/apis/login.type';
+import { LoginResponse } from '@/types/apis/login';
 
 export const kakaoLogin = async (kakaoAccessToken: string) => {
 	try {
