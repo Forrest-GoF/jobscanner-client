@@ -1,4 +1,4 @@
-import { Login, JobSearch, JobDetail, NotFound, OAuthRedirectKaKao } from '@/pages';
+import { Login, JobSearch, JobDetail, NotFound, OAuthRedirectKaKao, MyKanban } from '@/pages';
 import { Routes, Route } from 'react-router-dom';
 
 const Routers = () => {
@@ -8,6 +8,7 @@ const Routers = () => {
 			<Route path="/jobs/:jobId" element={<JobDetail />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/oauth/callback/kakao" element={<OAuthRedirectKaKao />} />
+			<Route path="/kanban" element={<MyKanban />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
 	);
