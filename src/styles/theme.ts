@@ -1,28 +1,73 @@
-import { Theme } from "@emotion/react";
+import { Theme } from '@emotion/react';
 
 const theme: Theme = {
-  colors: {
-    pink: {
-      100: "#fec9dc",
-      200: "#febcd4",
-      300: "#feafcb",
-      400: "#fea1c2",
-      500: "#fd94b9",
-      600: "#fd86b1",
-      700: "#fd79a8",
-      800: "#fd79a8"
-    },
-    blue: {
-      100: "#c7e3ff",
-      200: "#badcff",
-      300: "#acd5ff",
-      400: "#9eceff",
-      500: "#90c7ff",
-      600: "#82c0ff",
-      700: "#74b9ff",
-      800: "#74b9ff"
-    }
-  }
-}
+	colors: {
+		pink: {
+			100: '#fec9dc',
+			200: '#febcd4',
+			300: '#feafcb',
+			400: '#fea1c2',
+			500: '#fd94b9',
+			600: '#fd86b1',
+			700: '#fd79a8',
+			800: '#fd79a8',
+		},
+		blue: {
+			100: '#c7e3ff',
+			200: '#badcff',
+			300: '#acd5ff',
+			400: '#9eceff',
+			500: '#90c7ff',
+			600: '#82c0ff',
+			700: '#74b9ff',
+			800: '#74b9ff',
+		},
+		grey: {
+			100: '#d2d2d2',
+			200: '#c3c3c3',
+			300: '#b4b4b4',
+			400: '#a5a5a5',
+			500: '#969696',
+			600: '#878787',
+			700: '#787878',
+			800: '#696969',
+		},
+		white: '#ffffff',
+		black: '#000000',
+	},
+	fontSize: {
+		fs10: '10px',
+		fs11: '11px',
+		fs12: '12px',
+		fs13: '13px',
+		fs14: '14px',
+		fs15: '15px',
+		fs16: '16px',
+		fs17: '17px',
+		fs18: '18px',
+		fs19: '19px',
+		fs20: '20px',
+	},
+	fontWeight: {
+		light: 300,
+		regular: 400,
+		medium: 500,
+		bold: 700,
+		strongBold: 800,
+	},
+	lineHeight: {
+		lh10: '10px',
+		lh11: '11px',
+		lh12: '12px',
+		lh13: '13px',
+		lh14: '14px',
+		lh15: '15px',
+		lh16: '16px',
+		lh17: '17px',
+		lh18: '18px',
+		lh19: '19px',
+		lh20: '20px',
+	},
+};
 
 export default theme;
