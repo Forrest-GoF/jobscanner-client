@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import Layout from '@/components/layout';
+import JobList from '@/components/features/JobList';
 
 const JobSearch = () => {
 	return (
 		<Layout>
-			공고 리스트 페이지입니다.
-			<Link to="/jobs/1">공고 상세리스트 페이지로 이동</Link>
+			<JobList />
 		</Layout>
 	);
 };
