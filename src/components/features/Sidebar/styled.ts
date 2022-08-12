@@ -6,7 +6,7 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 3;
-	min-width: 150px;
+	min-width: 200px;
 	max-width: 300px;
 	min-height: 100vh;
 	border-right: 1px solid ${({ theme }) => theme.colors.grey[100]};
