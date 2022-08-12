@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './styled';
 import { FaThList } from 'react-icons/fa';
 import { BsFillKanbanFill } from 'react-icons/bs';
+import HorizontalRule from '../../shared/HorizontalRule/index';
 
 const SideBar = () => {
 	return (
@@ -12,7 +13,7 @@ const SideBar = () => {
 				</S.TopLogoWrapper>
 			</S.TopWrapper>
 
-			<S.HorizontalRule />
+			<HorizontalRule borderWidth="0.5px" />
 
 			<S.MiddleWrapper>
 				<S.SideNavList>

@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 export const Container = styled.nav`
 	display: flex;
 	align-items: center;
-	height: 52px;
-	border-bottom: 2px solid ${({ theme }) => theme.colors.grey[200]};
+	height: 50px;
+	padding: 0 20px;
+	background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const List = styled.ul`
@@ -12,7 +13,6 @@ export const List = styled.ul`
 	align-items: center;
 	justify-content: flex-end;
 	width: 100%;
-	padding: 20px;
 	font-size: ${({ theme }) => theme.fontSize.fs20};
 `;
 

@@ -6,10 +6,10 @@ export const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 3;
-	min-width: 150px;
+	min-width: 200px;
 	max-width: 300px;
 	min-height: 100vh;
-	border-right: 0.5px solid ${({ theme }) => theme.colors.grey[100]};
+	border-right: 1px solid ${({ theme }) => theme.colors.grey[100]};
 `;
 
 // 사이드바 - 상위 부분
@@ -76,13 +76,6 @@ export const SideNavListItemIconWrapper = styled.span`
 export const BottomWrapper = styled.div`
 	margin-top: auto;
 	margin-bottom: 50px;
-`;
-
-// 디바이더
-export const HorizontalRule = styled.hr`
-	height: 0;
-	margin: 0;
-	border: 0.5px solid ${({ theme }) => theme.colors.grey[100]};
 `;
 
 export const CopyrightWrapper = styled.span`
