@@ -5,5 +5,7 @@ export const Container = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
+	position: relative;
 	flex: 9;
+	background-color: #fbfbfb;
 `;
