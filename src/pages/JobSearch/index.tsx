@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import Layout from '@/components/layout';
-import JobList from '@/components/features/JobList';
+import { JobList } from '@/components/features';
 
 const JobSearch = () => {
 	return (

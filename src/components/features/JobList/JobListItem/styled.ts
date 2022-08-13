@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.li`
-	display: flex;
 	padding: 24px;
 	border: 1px solid transparent;
 	border-radius: 4px;
@@ -17,6 +17,11 @@ export const Container = styled.li`
 		-webkit-box-shadow: 2px 4px 10px 1px #acd5ff;
 		box-shadow: 2px 4px 10px 1px #acd5ff;
 	}
+`;
+
+export const InnerContainer = styled(Link)`
+	display: flex;
+	text-decoration: none;
 `;
 
 export const ImageWrapper = styled.div`
@@ -37,6 +42,7 @@ export const DesciptionWrapper = styled.div`
 	flex-direction: column;
 	gap: 8px;
 	width: 100%;
+	color: ${({ theme }) => theme.colors.black};
 `;
 
 export const Title = styled.h3`
