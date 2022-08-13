@@ -8,7 +8,7 @@ export type StyledLinkButtonProps = {
 };
 
 export type Props = {
-	to: string;
+	href: string;
 	target?: '_blank' | '_self' | '_top' | '_parent';
 	rel?: string | undefined;
 } & PropsWithChildren &
