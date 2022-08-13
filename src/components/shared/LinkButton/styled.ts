@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { StyledLinkButtonProps } from './type';
 
 export const Container = styled.div<StyledLinkButtonProps>`
+	flex: 1;
 	border: 1px solid
 		${({ buttonType, theme }) => (buttonType === 'primary' ? theme.colors.blue[700] : theme.colors.blue[700])};
 	border-radius: 20px;
@@ -31,5 +32,8 @@ export const LinkButton = styled(Link)<StyledLinkButtonProps>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex: 1;
+	width: 100%;
+	height: 100%;
 	text-decoration: none;
 `;
