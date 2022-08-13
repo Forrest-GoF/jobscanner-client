@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import * as S from './styled';
-import { JobListItemType } from '@/types/apis/job';
+import { JobListItemResponse } from '@/types/apis/job';
 import Chip from '@/components/shared/Chip';
 import { GrBriefcase, GrMoney } from 'react-icons/gr';
 import { TECH_STACK_SHOW_START, TECH_STACK_SHOW_END } from '@/constants/job';
 import { getDateAgoText } from '@/utils/day';
 
-const JobListItem = ({ job }: { job: JobListItemType }) => {
+const JobListItem = ({ job }: { job: JobListItemResponse }) => {
 	return (
 		<S.Container>
 			<S.InnerContainer to={`/jobs/${job.id}`}>
@@ -34,26 +34,26 @@ const JobListItem = ({ job }: { job: JobListItemType }) => {
 							{job.salary ? job.salary : '회사 내규'}
 						</S.SubInfo>
 					</S.SubInfoWrapper>
-					{job.stacks && (
+					{job.tags && (
 						<S.TechStacksWrapper>
-							{job.stacks.length > TECH_STACK_SHOW_END
-								? job.stacks.slice(TECH_STACK_SHOW_START, TECH_STACK_SHOW_END).map((stack, idx) => {
+							{job.tags.length > TECH_STACK_SHOW_END
+								? job.tags.slice(TECH_STACK_SHOW_START, TECH_STACK_SHOW_END).map((stack, idx) => {
 										return (
 											<Chip paddingColumn="4px" paddingRow="8px" borderRadius="10px" key={idx}>
 												{stack}
 											</Chip>
 										);
 								  })
-								: job.stacks.map((stack, idx) => {
+								: job.tags.map((tag, idx) => {
 										return (
 											<Chip paddingColumn="4px" paddingRow="8px" borderRadius="10px" key={idx}>
-												{stack}
+												{tag}
 											</Chip>
 										);
 								  })}
-							{job.stacks.length > TECH_STACK_SHOW_END && (
+							{job.tags.length > TECH_STACK_SHOW_END && (
 								<Chip paddingColumn="4px" paddingRow="8px" borderRadius="10px">
-									외 {job.stacks.slice(TECH_STACK_SHOW_END).length}개
+									외 {job.tags.slice(TECH_STACK_SHOW_END).length}개
 								</Chip>
 							)}
 						</S.TechStacksWrapper>
