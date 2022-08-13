@@ -28,7 +28,7 @@ export const Container = styled.div<StyledLinkButtonProps>`
 	}
 `;
 
-export const LinkButton = styled(Link)<StyledLinkButtonProps>`
+export const LinkButton = styled.a<StyledLinkButtonProps>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
