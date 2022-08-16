@@ -10,7 +10,10 @@ export const RESPONSE_SUCCESS_FOUND_REDIRECT = 302;
 
 export const PATH = {
 	auth: {
-		kakao: '/auth/kakao',
+		index: '/auth',
+		kakao: '/login/kakao',
+		refresh: '/refresh',
+		signup: '/signup/kakao',
 		login: '/login',
 		logout: '/logout',
 	},
@@ -18,7 +21,6 @@ export const PATH = {
 		info: '/user/info',
 	},
 	job: {
-		index: '/job',
-		list: '/joblist',
+		index: '/jobs',
 	},
 };
