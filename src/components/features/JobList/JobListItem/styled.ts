@@ -12,10 +12,10 @@ export const Container = styled.li`
 	cursor: pointer;
 
 	&:hover {
-		border: 1px solid ${({ theme }) => theme.colors.blue[300]};
+		border: 1px solid ${({ theme }) => theme.colors.primary[300]};
 		transform: translate3d(0, -6px, 0);
-		-webkit-box-shadow: 2px 4px 10px 1px #acd5ff;
-		box-shadow: 2px 4px 10px 1px #acd5ff;
+		-webkit-box-shadow: 2px 4px 10px 1px #66bfc8;
+		box-shadow: 2px 4px 10px 1px #66bfc8;
 	}
 `;
 
@@ -57,7 +57,7 @@ export const ExpiredDate = styled.p`
 	color: ${({ theme }) => theme.colors.grey[400]};
 
 	& > strong {
-		color: ${({ theme }) => theme.colors.pink[800]};
+		color: ${({ theme }) => theme.colors.primary[800]};
 	}
 `;
 

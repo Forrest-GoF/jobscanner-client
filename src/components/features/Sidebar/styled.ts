@@ -24,7 +24,7 @@ export const TopLogoWrapper = styled(Link)`
 	text-decoration: none;
 	font-size: ${({ theme }) => theme.fontSize.fs20};
 	& > span {
-		color: ${({ theme }) => theme.colors.blue[700]};
+		color: ${({ theme }) => theme.colors.primary[700]};
 	}
 `;
 
@@ -50,7 +50,7 @@ export const SideNavListItem = styled.li`
 	font-size: ${({ theme }) => theme.fontSize.fs16};
 
 	&:hover {
-		background-color: ${({ theme }) => theme.colors.blue[100]};
+		background-color: ${({ theme }) => theme.colors.primary[100]};
 	}
 `;
 
@@ -64,7 +64,7 @@ export const SideNavListItemInnerWrapper = styled(Link)`
 	color: ${({ theme }) => theme.colors.grey[400]};
 
 	& > span > svg {
-		color: ${({ theme }) => theme.colors.blue[700]};
+		color: ${({ theme }) => theme.colors.primary[700]};
 	}
 `;
 
