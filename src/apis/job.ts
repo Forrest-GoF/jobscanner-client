@@ -4,12 +4,12 @@ import { JobListItemsResponse, JobDetailResponse } from '@/types/apis/job';
 
 export const getJobs = async () => {
 	const {
-		job: { list },
+		job: { index },
 	} = PATH;
 
 	const { data } = await requester<JobListItemsResponse>({
 		method: GET,
-		url: list,
+		url: index,
 	});
 
 	return data?.jobs;
