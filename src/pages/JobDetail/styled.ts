@@ -34,7 +34,7 @@ export const ApplyPeriod = styled.p`
 	color: ${({ theme }) => theme.colors.black};
 
 	& > strong {
-		color: ${({ theme }) => theme.colors.pink[800]};
+		color: ${({ theme }) => theme.colors.primary[800]};
 	}
 `;
 

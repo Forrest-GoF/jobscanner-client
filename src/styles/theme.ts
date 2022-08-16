@@ -2,15 +2,15 @@ import { Theme } from '@emotion/react';
 
 const theme: Theme = {
 	colors: {
-		pink: {
-			100: '#fec9dc',
-			200: '#febcd4',
-			300: '#feafcb',
-			400: '#fea1c2',
-			500: '#fd94b9',
-			600: '#fd86b1',
-			700: '#fd79a8',
-			800: '#fd79a8',
+		primary: {
+			100: '#cceaed',
+			200: '#b3dfe3',
+			300: '#b3dfe3',
+			400: '#99d5da',
+			500: '#66bfc8',
+			600: '#4db5bf',
+			700: '#1aa0ac',
+			800: '#0095a3',
 		},
 		blue: {
 			100: '#c7e3ff',
@@ -32,8 +32,8 @@ const theme: Theme = {
 			700: '#787878',
 			800: '#696969',
 		},
-		white: '#ffffff',
-		black: '#000000',
+		white: '#FFFDFA',
+		black: '#151518',
 	},
 	fontSize: {
 		fs10: '10px',

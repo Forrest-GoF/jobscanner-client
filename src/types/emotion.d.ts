@@ -3,7 +3,7 @@ import '@emotion/styled';
 declare module '@emotion/react' {
 	export interface Theme {
 		colors: {
-			pink: {
+			primary: {
 				100: string;
 				200: string;
 				300: string;

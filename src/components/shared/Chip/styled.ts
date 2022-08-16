@@ -6,9 +6,9 @@ export const Container = styled.div<StyledContainerProps>`
 	align-items: center;
 	justify-content: center;
 	padding: ${({ paddingColumn, paddingRow }) => `${paddingColumn} ${paddingRow}`};
-	border: 1px solid ${({ theme }) => theme.colors.blue[800]};
+	border: 1px solid ${({ theme }) => theme.colors.primary[800]};
 	border-radius: ${({ borderRadius }) => borderRadius};
-	background-color: ${({ theme }) => theme.colors.blue[100]};
+	background-color: ${({ theme }) => theme.colors.primary[100]};
 `;
 
 export const Wrapper = styled.span``;
