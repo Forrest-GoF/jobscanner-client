@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import * as S from './styled';
 import { Sidebar, Navbar } from '@/components/features';
-import { HorizontalRule } from '../shared';
 
 const Layout = ({ children }: PropsWithChildren) => {
 	return (
@@ -9,7 +8,6 @@ const Layout = ({ children }: PropsWithChildren) => {
 			<Sidebar />
 			<S.InnerWrapper>
 				<Navbar />
-				<HorizontalRule borderWidth="0.5px" />
 				{children}
 			</S.InnerWrapper>
 		</S.Container>
