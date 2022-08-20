@@ -1,38 +1,41 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import * as S from './styled';
 import { FaThList } from 'react-icons/fa';
 import { BsFillKanbanFill } from 'react-icons/bs';
-import HorizontalRule from '../../shared/HorizontalRule/index';
+import LogoEN from '@/assets/images/shared/logo-en.svg';
 
 const SideBar = () => {
+	const { pathname } = useLocation();
+
 	return (
 		<S.Container>
 			<S.TopWrapper>
-				<S.TopLogoWrapper to="/">
-					<span>JOB SCANNER</span>
-				</S.TopLogoWrapper>
+				<h1>
+					<Link to="/">
+						<S.Logo src={LogoEN} alt="로고" />
+					</Link>
+				</h1>
 			</S.TopWrapper>
-
-			<HorizontalRule borderWidth="0.5px" />
 
 			<S.MiddleWrapper>
 				<S.SideNavList>
 					<S.SideNavListTitle>Main</S.SideNavListTitle>
 
 					<S.SideNavListItem>
-						<S.SideNavListItemInnerWrapper to="/">
+						<S.SideNavListItemInnerWrapper to="/" selected={pathname === '/'}>
 							<S.SideNavListItemIconWrapper>
 								<FaThList />
 							</S.SideNavListItemIconWrapper>
-							Job List
+							공고 탐색
 						</S.SideNavListItemInnerWrapper>
 					</S.SideNavListItem>
 					<S.SideNavListItem>
-						<S.SideNavListItemInnerWrapper to="/kanban">
+						<S.SideNavListItemInnerWrapper to="/kanban" selected={pathname === '/kanban'}>
 							<S.SideNavListItemIconWrapper>
 								<BsFillKanbanFill />
 							</S.SideNavListItemIconWrapper>
-							Job Kanban
+							공고 관리
 						</S.SideNavListItemInnerWrapper>
 					</S.SideNavListItem>
 				</S.SideNavList>
