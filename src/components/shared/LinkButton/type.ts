@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react';
 
 export type StyledLinkButtonProps = {
 	buttonType?: 'primary' | 'normal';
-	width?: string;
-	height?: string;
+	padding?: string;
+	borderRadius?: string;
 	fontSize?: string;
 };
 
