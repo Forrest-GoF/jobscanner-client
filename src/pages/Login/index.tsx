@@ -4,7 +4,7 @@ import { KAKAO_AUTH_URI } from '@/constants/auth';
 import { RiKakaoTalkFill, RiGithubFill } from 'react-icons/ri';
 import { AiOutlineMail } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
-import LogoKR from '@/assets/images/shared/logo-kr.svg';
+import LogoEN from '@/assets/images/shared/logo-en.svg';
 import BannerImg1 from '@/assets/images/login/job-search.svg';
 import BannerImg2 from '@/assets/images/login/job-chat.svg';
 import BannerImg3 from '@/assets/images/login/job-schedule.svg';
@@ -55,7 +55,7 @@ const Login = () => {
 					<S.LoginDesciptionPanel>
 						<S.LoginTitle>
 							<Link to="/">
-								<img src={LogoKR} alt="로고" />
+								<img src={LogoEN} alt="로고" />
 							</Link>
 						</S.LoginTitle>
 					</S.LoginDesciptionPanel>
