@@ -16,7 +16,7 @@ const loaderCircileSpin1 = keyframes`
 const loaderCircileSpin2 = keyframes`
   50% {
     transform: scale(1.3) translate(0, 0);
-    box-shadow: 0 0 0 #90c7ff;
+    box-shadow: 0 0 0 #0095a3;
     opacity: 0.8;
   }
 `;
@@ -24,7 +24,7 @@ const loaderCircileSpin2 = keyframes`
 const loaderCircileSpin3 = keyframes`
   50% {
     transform: scale(1.3) translate(0, 0);
-    box-shadow: 0 0 0 #90c7ff;
+    box-shadow: 0 0 0 #0095a3;
     opacity: 0.8;
   }
 `;
@@ -59,16 +59,16 @@ export const LoaderCircle = styled.div`
 	}
 
 	&:before {
-		background: #90c7ff;
+		background: #0095a3;
 		transform: translate(-0.75em, -0.75em) scale(1);
-		box-shadow: 1.5em 1.5em 0 #90c7ff;
+		box-shadow: 1.5em 1.5em 0 #0095a3;
 		animation: ${loaderCircileSpin2} 1.2s infinite ease;
 	}
 
 	&:after {
-		background: #90c7ff;
+		background: #0095a3;
 		transform: translate(0.75em, -0.75em) scale(1);
-		box-shadow: -1.5em 1.5em 0 #90c7ff;
+		box-shadow: -1.5em 1.5em 0 #0095a3;
 		animation: ${loaderCircileSpin3} 1.2s infinite ease;
 	}
 `;

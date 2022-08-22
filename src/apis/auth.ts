@@ -1,34 +1,49 @@
 import { PATH, POST } from '@/constants/api';
 import { requester } from '@/apis/requester';
 import { KEYS, setLocalStorageItem, removeLocalStorageItem } from '@/utils/storage';
-import { KakaoLoginResponse } from '@/types/apis/login';
+import { SingInResponse } from '@/types/apis/login';
 
-export const kakaoLogin = async (kakaoAccessToken: string) => {
+export const kakaoSignup = async (kakaoAccessToken: string) => {
+	const {
+		auth: { index, signup, kakao },
+	} = PATH;
+
+	const { headers, data, status } = await requester({
+		method: POST,
+		url: `${index}${signup}${kakao}`,
+		headers: {
+			Authorization: `Bearer ${kakaoAccessToken}`,
+		},
+	});
+
+	return status;
+};
+
+export const kakaoSignin = async (kakaoAccessToken: string) => {
 	try {
 		const {
-			auth: { index, kakao },
+			auth: { index, login, kakao },
 		} = PATH;
 
-		const { headers, data, status } = await requester<KakaoLoginResponse>({
+		const { headers, data, status } = await requester<SingInResponse>({
 			method: POST,
-			url: `${index}${kakao}`,
+			url: `${index}${login}${kakao}`,
 			headers: {
 				Authorization: `Bearer ${kakaoAccessToken}`,
 			},
 		});
 
-		const JOB_SCANNER_ACCESS_TOKEN = data?.appToken;
-		setLocalStorageItem(KEYS.JOB_SCANNER_ACCESS_TOKEN, JOB_SCANNER_ACCESS_TOKEN);
-		return status;
+		const JOB_STORY_ACCESS_TOKEN = data?.appToken;
+		const JOB_STORY_REFRESH_TOKEN = data?.refreshToken;
+		setLocalStorageItem(KEYS.JOB_STORY_ACCESS_TOKEN, JOB_STORY_ACCESS_TOKEN);
+		setLocalStorageItem(KEYS.JOB_STORY_REFRESH_TOKEN, JOB_STORY_REFRESH_TOKEN);
+		return { data, status };
 	} catch (error) {
 		console.log(`카카오 로그인 에러: ${error}`);
 	}
 };
 
 export const logout = async () => {
-	const {
-		auth: { logout },
-	} = PATH;
-
-	removeLocalStorageItem(KEYS.JOB_SCANNER_ACCESS_TOKEN);
+	removeLocalStorageItem(KEYS.JOB_STORY_ACCESS_TOKEN);
+	removeLocalStorageItem(KEYS.JOB_STORY_REFRESH_TOKEN);
 };
