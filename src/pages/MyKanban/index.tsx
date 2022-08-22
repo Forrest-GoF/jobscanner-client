@@ -1,8 +1,18 @@
 import Layout from '@/components/layout';
-import React from 'react';
+import * as S from './styled';
+import NotFound from '@/assets/images/shared/404.svg';
 
 const MyKanban = () => {
-	return <Layout>MyKanban</Layout>;
+	return (
+		<Layout>
+			<S.Container>
+				<S.NotFoundWrapper>
+					<img src={NotFound} alt="" />
+					<p>Getting Ready...</p>
+				</S.NotFoundWrapper>
+			</S.Container>
+		</Layout>
+	);
 };
 
 export default MyKanban;
