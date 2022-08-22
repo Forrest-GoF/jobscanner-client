@@ -1,9 +1,10 @@
 import Layout from '@/components/layout';
-import { JobList } from '@/components/features';
+import { JobList, JobSearchForm } from '@/components/features';
 
 const JobSearch = () => {
 	return (
 		<Layout>
+			{/* <JobSearchForm /> */}
 			<JobList />
 		</Layout>
 	);

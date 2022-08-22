@@ -44,6 +44,7 @@ export const SideNavListTitle = styled.p`
 export const SideNavListItem = styled.li`
 	display: flex;
 	height: 100%;
+	margin-bottom: 1rem;
 	font-size: ${({ theme }) => theme.fontSize.fs16};
 `;
 
@@ -60,6 +61,11 @@ export const SideNavListItemInnerWrapper = styled(Link)<StyledSideNavItemProps>`
 	font-weight: ${({ theme }) => theme.fontWeight.bold};
 	color: ${({ selected, theme }) => (selected ? theme.colors.white : theme.colors.grey[400])};
 	text-decoration: none;
+
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.primary[700]};
+		color: ${({ theme }) => theme.colors.white};
+	}
 `;
 
 export const SideNavListItemIconWrapper = styled.span`

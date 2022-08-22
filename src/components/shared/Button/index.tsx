@@ -2,10 +2,10 @@ import React from 'react';
 import * as S from './styled';
 import { Props } from './type';
 
-const Button = ({ type, disabled, onClick, children, ...props }: Props) => {
+const Button = ({ type, disabled, padding, children, onClick, ...props }: Props) => {
 	return (
 		<S.Container {...props}>
-			<S.Button type={type} disabled={disabled} onClick={onClick}>
+			<S.Button type={type} disabled={disabled} padding={padding} onClick={onClick}>
 				{children}
 			</S.Button>
 		</S.Container>
