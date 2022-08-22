@@ -3,9 +3,14 @@ import styled from '@emotion/styled';
 export const Container = styled.nav`
 	display: flex;
 	align-items: center;
-	height: 50px;
+	height: 70px;
 	padding: 0 20px;
+	margin: 16px 16px 0px 16px;
+	border: 1px solid ${({ theme }) => theme.colors.primary[700]};
+	border-radius: 8px;
 	background-color: ${({ theme }) => theme.colors.white};
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 8px;
 `;
 
 export const List = styled.ul`
@@ -23,18 +28,29 @@ export const ListItem = styled.li`
 	margin-left: 20px;
 `;
 
-export const NotificationCounter = styled.span`
+export const DropdownWrapper = styled.div`
+	position: relative;
+	cursor: pointer;
+`;
+
+export const Dropdown = styled.div`
 	position: absolute;
-	top: -5px;
-	right: -5px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	background-color: red;
-	font-size: ${({ theme }) => theme.fontSize.fs10};
-	font-weight: ${({ theme }) => theme.fontWeight.medium};
-	color: ${({ theme }) => theme.colors.white};
+	width: 200px;
+	margin-top: 1.2rem;
+	padding: 1rem;
+	border: 1px solid ${({ theme }) => theme.colors.primary[700]};
+	background-color: ${({ theme }) => theme.colors.white};
+	transform: translate3d(-35%, 0, 0);
+	z-index: 3;
+`;
+
+export const ProfileWrapper = styled.div`
+	margin-left: 0.8rem;
+	font-size: 1rem;
+	line-height: 1.2rem;
+	color: ${({ theme }) => theme.colors.grey[600]};
+	& > p {
+		font-weight: ${({ theme }) => theme.fontWeight.bold};
+		color: ${({ theme }) => theme.colors.black};
+	}
 `;

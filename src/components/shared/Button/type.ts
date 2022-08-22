@@ -4,6 +4,8 @@ export type StyledButtonProps = {
 	buttonType?: 'primary' | 'normal';
 	width?: string;
 	height?: string;
+	padding?: string;
+	borderRadius?: string;
 	fontSize?: string;
 };
 

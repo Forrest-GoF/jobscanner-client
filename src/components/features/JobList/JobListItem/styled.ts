@@ -14,8 +14,8 @@ export const Container = styled.li`
 	&:hover {
 		border: 1px solid ${({ theme }) => theme.colors.primary[300]};
 		transform: translate3d(0, -6px, 0);
-		-webkit-box-shadow: 2px 4px 10px 1px #66bfc8;
-		box-shadow: 2px 4px 10px 1px #66bfc8;
+		-webkit-box-shadow: 1px 1px 6px 1px #66bfc8;
+		box-shadow: 1px 1px 6px 1px #66bfc8;
 	}
 `;
 
@@ -35,7 +35,10 @@ export const ImageWrapper = styled.div`
 	background-color: lightgray;
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+	width: 100%;
+	object-fit: cover;
+`;
 
 export const DesciptionWrapper = styled.div`
 	display: flex;

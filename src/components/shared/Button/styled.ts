@@ -5,7 +5,7 @@ export const Container = styled.div<StyledButtonProps>`
 	flex: 1;
 	border: 1px solid
 		${({ buttonType, theme }) => (buttonType === 'primary' ? theme.colors.primary[700] : theme.colors.primary[700])};
-	border-radius: 20px;
+	border-radius: ${({ borderRadius }) => borderRadius};
 	background-color: ${({ buttonType, theme }) =>
 		buttonType === 'primary' ? theme.colors.primary[700] : theme.colors.white};
 
@@ -27,14 +27,14 @@ export const Container = styled.div<StyledButtonProps>`
 	}
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<StyledButtonProps>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex: 1;
 	width: 100%;
 	height: 100%;
-	padding: 0;
+	padding: ${({ padding }) => padding};
 	border: none;
 	background: none;
 	cursor: pointer;

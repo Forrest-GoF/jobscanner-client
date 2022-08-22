@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 import { StyledLinkButtonProps } from './type';
 
 export const Container = styled.div<StyledLinkButtonProps>`
+	display: flex;
 	flex: 1;
 	border: 1px solid
 		${({ buttonType, theme }) => (buttonType === 'primary' ? theme.colors.primary[700] : theme.colors.primary[700])};
-	border-radius: 20px;
+	border-radius: ${({ borderRadius }) => borderRadius};
+
 	background-color: ${({ buttonType, theme }) =>
 		buttonType === 'primary' ? theme.colors.primary[700] : theme.colors.white};
 
@@ -33,7 +34,6 @@ export const LinkButton = styled.a<StyledLinkButtonProps>`
 	align-items: center;
 	justify-content: center;
 	flex: 1;
-	width: 100%;
-	height: 100%;
+	padding: ${({ padding }) => padding};
 	text-decoration: none;
 `;

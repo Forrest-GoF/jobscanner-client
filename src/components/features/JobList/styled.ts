@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-	max-height: calc(100% - 51px);
-	padding: 20px;
+	max-height: calc(100% - 90px);
+	padding: 16px 20px;
 	overflow-y: auto;
 `;
 
