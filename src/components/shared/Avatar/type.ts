@@ -1,6 +1,6 @@
 export type Props = {
 	size: string;
-	imgSrc: string;
+	imgSrc: string | undefined;
 };
 
 export type StyledContainerProps = {

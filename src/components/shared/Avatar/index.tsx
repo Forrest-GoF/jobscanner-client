@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './styled';
 import { Props } from './type';
+
 const Avatar = (props: Props) => {
 	return (
 		<S.Container size={props.size}>
