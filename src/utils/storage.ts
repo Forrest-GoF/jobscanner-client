@@ -1,7 +1,8 @@
 const EMPTY_VALUE = '';
 
 export const KEYS = {
-	JOB_SCANNER_ACCESS_TOKEN: 'JOB_SCANNER_ACCESS_TOKEN',
+	JOB_STORY_ACCESS_TOKEN: 'JOB_STORY_ACCESS_TOKEN',
+	JOB_STORY_REFRESH_TOKEN: 'JOB_STORY_REFRESH_TOKEN',
 };
 
 export const getLocalStorageItem = (key: string): any => {

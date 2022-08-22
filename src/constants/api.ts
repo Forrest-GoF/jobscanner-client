@@ -7,13 +7,15 @@ export const DELETE = 'DELETE';
 export const RESPONSE_SUCCESS_OK = 200;
 export const RESPONSE_SUCCESS_CREATED = 201;
 export const RESPONSE_SUCCESS_FOUND_REDIRECT = 302;
+export const RESPONSE_FAIL_UNAUTHORIZED = 401;
+export const RESPONSE_FAIL_CONFIICT = 409;
 
 export const PATH = {
 	auth: {
 		index: '/auth',
-		kakao: '/login/kakao',
+		signup: '/signup',
+		kakao: '/kakao',
 		refresh: '/refresh',
-		signup: '/signup/kakao',
 		login: '/login',
 		logout: '/logout',
 	},
