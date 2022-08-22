@@ -15,72 +15,74 @@ import { Chip } from '@/components/shared';
 import { getDateAgoText } from '@/utils/day';
 
 const JobDetail = () => {
+	const { jobId } = useParams();
+	const { data: job } = useQuery(['getJob'], () => getJob(Number(jobId)));
+
 	return (
 		<Layout>
 			<S.Container>
 				<S.DetailIntro>
-					<S.JobTitle>{jobDetailMock1.title}</S.JobTitle>
-					<S.CompanyName>{jobDetailMock1.company.name}</S.CompanyName>
+					<S.JobTitle>{job?.title}</S.JobTitle>
+					<S.CompanyName>{job?.company.name}</S.CompanyName>
 					<S.ApplyPeriod>
-						{jobDetailMock1.postedAt && jobDetailMock1.expiredAt ? (
+						{job?.postedAt && job?.expiredAt ? (
 							<>
-								{jobDetailMock1.postedAt} ~ {jobDetailMock1.expiredAt}{' '}
-								<strong>{`(${getDateAgoText(jobDetailMock1.expiredAt)})`}</strong>
+								{job?.postedAt} ~ {job?.expiredAt} <strong>{`(${getDateAgoText(job?.expiredAt)})`}</strong>
 							</>
 						) : (
 							'상시 모집'
 						)}
 					</S.ApplyPeriod>
 					<S.Location>
-						{jobDetailMock1.location && (
+						{job?.location && (
 							<>
 								<ImLocation style={{ marginRight: '4px' }} />
-								{jobDetailMock1.location}
+								{job?.location}
 							</>
 						)}
 					</S.Location>
 					<S.SubInfoWrapper>
 						<S.SubInfoItemWrapper>
-							{jobDetailMock1.type && (
+							{job?.type && (
 								<>
 									<SiHandshake style={{ marginRight: '4px' }} />
-									{jobDetailMock1.type}
+									{job?.type}
 								</>
 							)}
 						</S.SubInfoItemWrapper>
 						<S.SubInfoItemWrapper>
-							{jobDetailMock1.salary ? (
+							{job?.salary ? (
 								<>
 									<GrMoney style={{ marginRight: '4px' }} />
-									{jobDetailMock1.salary}
+									{job?.salary}
 								</>
 							) : (
 								'회사 내규'
 							)}
 						</S.SubInfoItemWrapper>
 						<S.SubInfoItemWrapper>
-							{jobDetailMock1.platform && (
+							{job?.platform && (
 								<>
 									<GrBriefcase style={{ marginRight: '4px' }} />
-									{jobDetailMock1.platform}
+									{job?.platform}
 								</>
 							)}
 						</S.SubInfoItemWrapper>
 					</S.SubInfoWrapper>
 					<S.SubInfoWrapper>
 						<S.SubInfoItemWrapper>
-							{jobDetailMock1.education && (
+							{job?.education && (
 								<>
 									<FaUserGraduate style={{ marginRight: '4px' }} />
-									{jobDetailMock1.education}
+									{job?.education}
 								</>
 							)}
 						</S.SubInfoItemWrapper>
 						<S.SubInfoItemWrapper>
-							{jobDetailMock1.career && (
+							{job?.career && (
 								<>
 									<GrPersonalComputer style={{ marginRight: '4px' }} />
-									{jobDetailMock1.career}
+									{job?.career}
 								</>
 							)}
 						</S.SubInfoItemWrapper>
@@ -95,67 +97,68 @@ const JobDetail = () => {
 							<HiOutlinePaperClip style={{ marginRight: '6px' }} />
 							공고 링크 복사
 						</Button>
-						<LinkButton href={`${jobDetailMock1.applyUrl}`} target="_blank" buttonType="primary" fontSize="0.7em">
+						<LinkButton href={`${job?.applyUrl}`} target="_blank" buttonType="primary" fontSize="0.7em">
 							<BsFillArrowRightSquareFill style={{ marginRight: '6px' }} />
 							지원하기
 						</LinkButton>
 					</S.ButtonWrapper>
 				</S.DetailIntro>
+
 				<S.DetailDescription>
-					{jobDetailMock1.jobDetail.summary && (
+					{job?.jobDetail?.summary && (
 						<>
 							<S.DescriptionTitle>공고 요약</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{jobDetailMock1.jobDetail.summary}</S.DescriptionItemWrapper>
+							<S.DescriptionItemWrapper>{job?.jobDetail?.summary}</S.DescriptionItemWrapper>
 							<br />
 						</>
 					)}
 
-					{jobDetailMock1.jobDetail.introduction && (
+					{job?.jobDetail?.introduction && (
 						<>
 							<S.DescriptionTitle>회사 소개</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{jobDetailMock1.jobDetail.introduction}</S.DescriptionItemWrapper>
+							<S.DescriptionItemWrapper>{job?.jobDetail?.introduction}</S.DescriptionItemWrapper>
 							<br />
 						</>
 					)}
 
-					{jobDetailMock1.jobDetail.mainTask && (
+					{job?.jobDetail?.mainTask && (
 						<>
 							<S.DescriptionTitle>주요 업무</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{jobDetailMock1.jobDetail.mainTask}</S.DescriptionItemWrapper>
+							<S.DescriptionItemWrapper>{job?.jobDetail?.mainTask}</S.DescriptionItemWrapper>
 							<br />
 						</>
 					)}
 
-					{jobDetailMock1.jobDetail.qualification && (
+					{job?.jobDetail?.qualification && (
 						<>
 							<S.DescriptionTitle>자격 요건</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{jobDetailMock1.jobDetail.qualification}</S.DescriptionItemWrapper>
+							<S.DescriptionItemWrapper>{job?.jobDetail?.qualification}</S.DescriptionItemWrapper>
 							<br />
 						</>
 					)}
 
-					{jobDetailMock1.jobDetail.procedure && (
+					{job?.jobDetail?.procedure && (
 						<>
 							<S.DescriptionTitle>지원 절차</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{jobDetailMock1.jobDetail.procedure}</S.DescriptionItemWrapper>
+							<S.DescriptionItemWrapper>{job?.jobDetail?.procedure}</S.DescriptionItemWrapper>
 							<br />
 						</>
 					)}
 
-					{jobDetailMock1.jobDetail.benefit && (
+					{job?.jobDetail?.benefit && (
 						<>
 							<S.DescriptionTitle>복지 및 혜택</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{jobDetailMock1.jobDetail.benefit}</S.DescriptionItemWrapper>
+							<S.DescriptionItemWrapper>{job?.jobDetail?.benefit}</S.DescriptionItemWrapper>
 							<br />
 						</>
 					)}
 
-					{jobDetailMock1.tags && (
+					{job?.tags && job?.tags.length > 0 && (
 						<>
 							<S.DescriptionTitle>기술스택 ・ 툴</S.DescriptionTitle>
 							<S.TechStacksWrapper>
 								<S.TechStacks>
-									{jobDetailMock1.tags.map((tag, idx) => {
+									{job?.tags.map((tag, idx) => {
 										return (
 											<Chip key={idx} paddingColumn="4px" paddingRow="8px" borderRadius="10px">
 												{tag}
