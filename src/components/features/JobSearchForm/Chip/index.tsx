@@ -1,14 +1,20 @@
+import { useRef } from 'react';
 import * as S from './styled';
 
 type Props = {
-	onRemoveChip: () => void;
+	filterKey: string;
+	filterValue: string;
+	onChipDelete: (key: string, value: string) => void;
 } & React.PropsWithChildren;
 
 const Chip = (props: Props) => {
-	const handleRemoveChipButtonClick = (event: React.MouseEvent<HTMLElement>) => {};
+	const handleRemoveChipButtonClick = () => {
+		const { filterKey, filterValue } = props;
+		props.onChipDelete(filterKey, filterValue);
+	};
 
 	return (
-		<S.Container onClick={props.onRemoveChip}>
+		<S.Container onClick={handleRemoveChipButtonClick}>
 			<S.InnerWrapper>
 				<span>{props.children}</span>
 				<S.ChipDeleteButtton type="button">X</S.ChipDeleteButtton>
