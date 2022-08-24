@@ -7,7 +7,7 @@ const JobSearch = () => {
 
 	return (
 		<Layout>
-			{/* <JobSearchForm /> */}
+			<JobSearchForm />
 			<JobList jobs={jobs} />
 		</Layout>
 	);
