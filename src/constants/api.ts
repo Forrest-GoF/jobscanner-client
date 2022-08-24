@@ -25,4 +25,7 @@ export const PATH = {
 	job: {
 		index: '/jobs',
 	},
+	tag: {
+		index: '/tags',
+	},
 };
