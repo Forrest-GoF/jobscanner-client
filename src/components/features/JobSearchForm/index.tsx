@@ -85,28 +85,59 @@ const JobSearchForm = (props: Props) => {
 			<S.SelectedFilterChips>
 				{selectedFilter.keywords?.map((keyword, idx) => {
 					return (
-						<Chip key={idx} filterKey="keywords" filterValue={keyword} onChipDelete={handleChipDelete}>
+						<Chip
+							key={idx}
+							color="#e17055"
+							bgColor="#f9e2dd"
+							filterKey="keywords"
+							filterValue={keyword}
+							onChipDelete={handleChipDelete}
+						>
 							{keyword}
 						</Chip>
 					);
 				})}
 				{selectedFilter.type && (
-					<Chip filterKey={'type'} filterValue={selectedFilter.type} onChipDelete={handleChipDelete}>
+					<Chip
+						color="#0095a3"
+						bgColor="#cceaed"
+						filterKey={'type'}
+						filterValue={selectedFilter.type}
+						onChipDelete={handleChipDelete}
+					>
 						{selectedFilter.type && `${selectedFilter.type}`}
 					</Chip>
 				)}
 				{selectedFilter.minEmployees && (
-					<Chip filterKey="minEmployees" filterValue={selectedFilter.minEmployees} onChipDelete={handleChipDelete}>
+					<Chip
+						color="#0984e3"
+						bgColor="#cee6f9"
+						filterKey="minEmployees"
+						filterValue={selectedFilter.minEmployees}
+						onChipDelete={handleChipDelete}
+					>
 						{selectedFilter.minEmployees}명 이상
 					</Chip>
 				)}
 				{selectedFilter.minSalary && (
-					<Chip filterKey="minSalary" filterValue={selectedFilter.minSalary} onChipDelete={handleChipDelete}>
+					<Chip
+						color="#6c5ce7"
+						bgColor="#e2defa"
+						filterKey="minSalary"
+						filterValue={selectedFilter.minSalary}
+						onChipDelete={handleChipDelete}
+					>
 						{selectedFilter.minSalary}원 이상
 					</Chip>
 				)}
 				{selectedFilter.sortedBy && (
-					<Chip filterKey="sortedBy" filterValue={selectedFilter.sortedBy} onChipDelete={handleChipDelete}>
+					<Chip
+						color="#636e72"
+						bgColor="#e0e2e3"
+						filterKey="sortedBy"
+						filterValue={selectedFilter.sortedBy}
+						onChipDelete={handleChipDelete}
+					>
 						{selectedFilter.sortedBy === 'POSTED' ? '최신순' : '마감순'}
 					</Chip>
 				)}

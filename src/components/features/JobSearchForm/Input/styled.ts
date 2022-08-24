@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
 	position: relative;
-	margin: 8px 0;
 `;
 
 export const Input = styled.input`
