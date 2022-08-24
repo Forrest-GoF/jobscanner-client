@@ -24,7 +24,7 @@ const Navbar = () => {
 							{isVisiableDropdown && (
 								<S.Dropdown>
 									<Button type="button" onClick={handleLogoutButtonClick} padding="0.5rem 1rem" borderRadius="8px">
-										로그아웃
+										Logout
 									</Button>
 								</S.Dropdown>
 							)}
@@ -36,8 +36,14 @@ const Navbar = () => {
 					</S.ListItem>
 				) : (
 					<S.ListItem>
-						<LinkButton href="/login" buttonType="primary" padding="1rem 2rem" borderRadius="0.5rem" fontSize="1rem">
-							로그인
+						<LinkButton
+							href="/login"
+							buttonType="primary"
+							padding="0.8rem 1.6rem"
+							borderRadius="0.5rem"
+							fontSize="1rem"
+						>
+							Login
 						</LinkButton>
 					</S.ListItem>
 				)}
