@@ -1,16 +1,19 @@
+import { useEffect } from 'react';
 import * as S from './styled';
 import JobListItem from '@/components/features/JobList/JobListItem';
 import { JobListItemsResponse } from '@/types/apis/job';
 
 const JobList = (props: JobListItemsResponse) => {
+	const { jobs } = props;
+
 	return (
-		<S.Container>
+		<>
 			<S.List>
-				{props?.jobs?.map((job) => {
-					return <JobListItem key={job.id} job={job}></JobListItem>;
-				})}
+				{jobs?.map((job) => (
+					<JobListItem key={job.id} job={job} />
+				))}
 			</S.List>
-		</S.Container>
+		</>
 	);
 };
 
