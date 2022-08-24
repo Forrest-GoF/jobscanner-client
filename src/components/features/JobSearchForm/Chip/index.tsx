@@ -1,7 +1,10 @@
 import { useRef } from 'react';
 import * as S from './styled';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 type Props = {
+	color: string;
+	bgColor: string;
 	filterKey: string;
 	filterValue: string;
 	onChipDelete: (key: string, value: string) => void;
@@ -14,10 +17,12 @@ const Chip = (props: Props) => {
 	};
 
 	return (
-		<S.Container onClick={handleRemoveChipButtonClick}>
+		<S.Container color={props.color} bgColor={props.bgColor} onClick={handleRemoveChipButtonClick}>
 			<S.InnerWrapper>
 				<span>{props.children}</span>
-				<S.ChipDeleteButtton type="button">X</S.ChipDeleteButtton>
+				<S.ChipDeleteButtton type="button">
+					<IoIosCloseCircleOutline />
+				</S.ChipDeleteButtton>
 			</S.InnerWrapper>
 		</S.Container>
 	);

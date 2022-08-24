@@ -1,17 +1,24 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.form`
-	margin: 0 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	margin: 0.5em 1em;
 `;
 
 export const InputWrapper = styled.div``;
 
 export const SelectWrapper = styled.div`
 	display: flex;
-	gap: 8px;
+	gap: 0.5em;
 `;
 
-export const SelectedFilterChips = styled.div``;
+export const SelectedFilterChips = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+`;
 
 export const SelectedFilterResetButton = styled.button`
 	border: none;
