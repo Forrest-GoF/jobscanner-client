@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import { getJobs } from '@/apis/job';
 import * as S from './styled';
 import { JobListItemResponse } from '@/types/apis/job';
+import LogoSymbol from '@/assets/images/shared/logo-symbol.svg';
 
 const JobSearch = () => {
 	const [page, setPage] = useState(1);
@@ -41,7 +42,11 @@ const JobSearch = () => {
 			<JobSearchForm onJobSearchQueryStringChange={handleJobSearchQueryStringChange} />
 			<S.JobListContainer>
 				<JobList jobs={jobs} />
-				{jobs.length > 0 && <div ref={ref}>last element trigger... </div>}
+				{data?.length > 0 && (
+					<S.LoadingWrapper ref={ref}>
+						<img src={LogoSymbol} alt="심볼" />
+					</S.LoadingWrapper>
+				)}
 			</S.JobListContainer>
 		</Layout>
 	);
