@@ -12,3 +12,14 @@ export const SelectWrapper = styled.div`
 `;
 
 export const SelectedFilterChips = styled.div``;
+
+export const SelectedFilterResetButton = styled.button`
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&:hover {
+		color: red;
+		background-color: rgba(255, 0, 0, 0.1);
+	}
+`;

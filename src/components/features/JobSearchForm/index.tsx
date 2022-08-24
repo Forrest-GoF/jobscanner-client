@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Input from './Input';
 import Select from './Select';
 import Chip from './Chip';
 import * as S from './styled';
 import { JOB_SEARCH_SELECT_ITEMS } from '@/constants/job';
 
-const JobSearchForm = () => {
+type Props = {
+	onJobSearchQueryStringChange: (queryString: string) => void;
+};
+
+const JobSearchForm = (props: Props) => {
 	const [selectedFilter, setSelectedFilter] = useState({
 		keywords: [],
-		minCareer: '',
+		type: '',
 		minEmployees: '',
 		minSalary: '',
-		enrollDay: '',
+		sortedBy: '',
 	});
 
 	const handleKeywordChange = (key: string, value: string) => {
@@ -23,8 +27,41 @@ const JobSearchForm = () => {
 		setSelectedFilter({ ...selectedFilter, [key]: value });
 	};
 
+	const handleChipDelete = (key: string, value: string) => {
+		if (key === 'keywords') {
+			const filteredKeywords = selectedFilter.keywords.filter((keyword) => keyword !== value);
+			setSelectedFilter({ ...selectedFilter, [key]: filteredKeywords });
+			return;
+		}
+
+		setSelectedFilter({ ...selectedFilter, [key]: '' });
+	};
+
+	const handleSelectedFilterReset = () => {
+		setSelectedFilter({
+			keywords: [],
+			type: '',
+			minEmployees: '',
+			minSalary: '',
+			sortedBy: '',
+		});
+	};
+
+	const getFilterQueryString = () => {
+		const vaildFilterObj = Object.keys(selectedFilter)
+			.filter((filterKey) => selectedFilter[filterKey].length > 0)
+			.reduce((acc, filterKey) => ({ ...acc, [filterKey]: selectedFilter[filterKey] }), {});
+
+		const queryString = Object.entries(vaildFilterObj)
+			.map((e) => e.join('='))
+			.join('&');
+
+		return queryString;
+	};
+
 	useEffect(() => {
-		console.log(selectedFilter);
+		const queryString = getFilterQueryString();
+		props.onJobSearchQueryStringChange(queryString);
 	}, [selectedFilter]);
 
 	return (
@@ -39,6 +76,7 @@ const JobSearchForm = () => {
 							key={selectItem.id}
 							placeholder={selectItem.placeholder}
 							dropdownItems={selectItem.dropdownItems}
+							selectedValue={selectedFilter[selectItem.dropdownItems[0]?.name]}
 							onSelectFilterChange={handleSelectFilterChange}
 						/>
 					);
@@ -47,21 +85,34 @@ const JobSearchForm = () => {
 			<S.SelectedFilterChips>
 				{selectedFilter.keywords?.map((keyword, idx) => {
 					return (
-						<Chip key={idx} onRemoveChip={() => {}}>
+						<Chip key={idx} filterKey="keywords" filterValue={keyword} onChipDelete={handleChipDelete}>
 							{keyword}
 						</Chip>
 					);
 				})}
-				{selectedFilter.minCareer && (
-					<Chip onRemoveChip={() => {}}>
-						{selectedFilter.minCareer === '0' ? '신입' : `${selectedFilter.minCareer}년 경력`}
+				{selectedFilter.type && (
+					<Chip filterKey={'type'} filterValue={selectedFilter.type} onChipDelete={handleChipDelete}>
+						{selectedFilter.type && `${selectedFilter.type}`}
 					</Chip>
 				)}
-				{selectedFilter.minEmployees && <Chip onRemoveChip={() => {}}>{selectedFilter.minEmployees}명 이상</Chip>}
-				{selectedFilter.minSalary && <Chip onRemoveChip={() => {}}>{selectedFilter.minSalary}원 이상</Chip>}
-				{selectedFilter.enrollDay && (
-					<Chip onRemoveChip={() => {}}>{selectedFilter.enrollDay === '0' ? '최신순' : '마감순'}</Chip>
+				{selectedFilter.minEmployees && (
+					<Chip filterKey="minEmployees" filterValue={selectedFilter.minEmployees} onChipDelete={handleChipDelete}>
+						{selectedFilter.minEmployees}명 이상
+					</Chip>
 				)}
+				{selectedFilter.minSalary && (
+					<Chip filterKey="minSalary" filterValue={selectedFilter.minSalary} onChipDelete={handleChipDelete}>
+						{selectedFilter.minSalary}원 이상
+					</Chip>
+				)}
+				{selectedFilter.sortedBy && (
+					<Chip filterKey="sortedBy" filterValue={selectedFilter.sortedBy} onChipDelete={handleChipDelete}>
+						{selectedFilter.sortedBy === 'POSTED' ? '최신순' : '마감순'}
+					</Chip>
+				)}
+				<S.SelectedFilterResetButton type="button" onClick={handleSelectedFilterReset}>
+					전체 초기화
+				</S.SelectedFilterResetButton>
 			</S.SelectedFilterChips>
 		</S.Container>
 	);

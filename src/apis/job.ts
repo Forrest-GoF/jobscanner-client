@@ -2,14 +2,14 @@ import { GET, PATH } from '@/constants/api';
 import { requester } from '@/apis/requester';
 import { JobListItemsResponse, JobDetailResponse } from '@/types/apis/job';
 
-export const getJobs = async () => {
+export const getJobs = async (queryString: string) => {
 	const {
 		job: { index },
 	} = PATH;
 
 	const { data } = await requester<JobListItemsResponse>({
 		method: GET,
-		url: index,
+		url: `${index}${queryString && `?${queryString}`}`,
 	});
 
 	return data?.jobs;

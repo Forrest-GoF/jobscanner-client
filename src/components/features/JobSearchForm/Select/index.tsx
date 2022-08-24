@@ -4,6 +4,7 @@ import * as S from './styled';
 type Props = {
 	placeholder: string;
 	dropdownItems: Array<{ id: number; label: string; name: string; value: string }>;
+	selectedValue: string;
 	onSelectFilterChange: (key: string, value: string) => void;
 };
 
@@ -29,6 +30,7 @@ const Select = (props: Props) => {
 								type="radio"
 								name={dropdownItem.name}
 								value={dropdownItem.value}
+								checked={dropdownItem.value === props.selectedValue}
 								onChange={handleFilterSelectClick}
 							/>
 							<S.DropdownRadioInputLabel htmlFor={`${dropdownItem.name}-${dropdownItem.id}`}>
