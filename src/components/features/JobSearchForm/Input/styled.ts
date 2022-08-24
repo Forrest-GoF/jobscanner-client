@@ -41,7 +41,7 @@ export const AutoCompleteWrapper = styled.div`
 	background-color: ${({ theme }) => theme.colors.white};
 	box-shadow: 0 0.25rem 0.5rem rgb(20 20 84 / 4%), 0 0.5rem 1.125rem rgb(20 20 84 / 8%),
 		0 1rem 2rem -0.125rem rgb(20 20 84 / 8%), 0 0 0 0.0625rem rgb(20 20 84 / 12%);
-	overflow-y: auto;
+	overflow-y: scroll;
 	z-index: 1000;
 `;
 

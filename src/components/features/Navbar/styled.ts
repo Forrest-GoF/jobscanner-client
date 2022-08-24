@@ -5,12 +5,8 @@ export const Container = styled.nav`
 	align-items: center;
 	height: 70px;
 	padding: 0 20px;
-	margin: 16px 16px 0px 16px;
-	border: 1px solid ${({ theme }) => theme.colors.primary[700]};
-	border-radius: 8px;
 	background-color: ${({ theme }) => theme.colors.white};
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 8px;
 `;
 
 export const List = styled.ul`
