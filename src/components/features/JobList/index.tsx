@@ -1,13 +1,8 @@
 import * as S from './styled';
-import { jobsMock } from '@/assets/mock/job';
 import JobListItem from '@/components/features/JobList/JobListItem';
-import { getJobs } from '@/apis/job';
-import { useQuery } from '@tanstack/react-query';
 import { JobListItemsResponse } from '@/types/apis/job';
 
-type Props = JobListItemsResponse | undefined;
-
-const JobList = (props: Props) => {
+const JobList = (props: JobListItemsResponse) => {
 	return (
 		<S.Container>
 			<S.List>

@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getJob } from '@/apis/job';
-import { jobDetailMock1, jobDetailMock2 } from '@/assets/mock/job';
 import Layout from '@/components/layout';
 import * as S from './styled';
 import { Button, LinkButton } from '@/components/shared';
