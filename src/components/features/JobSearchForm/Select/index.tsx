@@ -24,7 +24,7 @@ const Select = (props: Props) => {
 			<S.Dropdown show={isVisibleDropdown}>
 				{props.dropdownItems?.map((dropdownItem) => {
 					return (
-						<S.DropdownItemWrapper key={dropdownItem.id}>
+						<S.DropdownItemWrapper key={dropdownItem.id} onClick={() => setIsVisibleDropdown(false)}>
 							<S.DropdownRadioInput
 								id={`${dropdownItem.name}-${dropdownItem.id}`}
 								type="radio"

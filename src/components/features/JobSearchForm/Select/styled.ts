@@ -53,13 +53,16 @@ export const Dropdown = styled.div<StyledDropdownProps>`
 	z-index: 1000;
 `;
 
-export const DropdownItemWrapper = styled.div``;
+export const DropdownItemWrapper = styled.div`
+	display: flex;
+`;
 
 export const DropdownRadioInput = styled.input`
 	cursor: pointer;
 `;
 
 export const DropdownRadioInputLabel = styled.label`
+	width: 100%;
 	cursor: pointer;
 
 	&:hover {

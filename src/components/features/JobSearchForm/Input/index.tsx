@@ -15,15 +15,20 @@ const Input = (props: Props) => {
 
 	const { data: tags } = useQuery(['getTechTags'], getTechTags);
 
-	const handleKeywordInputChange = (event: React.FormEvent<HTMLInputElement>) => {
-		setKeyword(event.currentTarget.value);
-	};
-
 	const handleSearchedKeywordClick = (event: React.MouseEvent<HTMLLIElement>) => {
 		if (!event.currentTarget.textContent) return;
 
 		const clickedKeyword = event.currentTarget.textContent;
-		props.onKeywordChange('keywords', clickedKeyword);
+		props.onKeywordChange('tags', clickedKeyword);
+		handleKeywordInputReset();
+	};
+
+	const handleKeywordInputReset = () => {
+		setKeyword('');
+	};
+
+	const handleKeywordInputChange = (event: React.FormEvent<HTMLInputElement>) => {
+		setKeyword(event.currentTarget.value);
 	};
 
 	useEffect(() => {
@@ -37,8 +42,9 @@ const Input = (props: Props) => {
 			<S.Input
 				type="text"
 				placeholder={props.placeholder}
-				name="keywords"
+				name="tags"
 				value={keyword}
+				autoComplete="off"
 				onChange={handleKeywordInputChange}
 			/>
 			<RiStackLine />

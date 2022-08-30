@@ -11,7 +11,7 @@ type Props = {
 
 const JobSearchForm = (props: Props) => {
 	const [selectedFilter, setSelectedFilter] = useState({
-		keywords: [],
+		tags: [],
 		type: '',
 		minEmployees: '',
 		minSalary: '',
@@ -19,7 +19,7 @@ const JobSearchForm = (props: Props) => {
 	});
 
 	const handleKeywordChange = (key: string, value: string) => {
-		const newKeywords = Array.from(new Set([...selectedFilter.keywords, value]));
+		const newKeywords = Array.from(new Set([...selectedFilter.tags, value]));
 		setSelectedFilter({ ...selectedFilter, [key]: newKeywords });
 	};
 
@@ -28,9 +28,9 @@ const JobSearchForm = (props: Props) => {
 	};
 
 	const handleChipDelete = (key: string, value: string) => {
-		if (key === 'keywords') {
-			const filteredKeywords = selectedFilter.keywords.filter((keyword) => keyword !== value);
-			setSelectedFilter({ ...selectedFilter, [key]: filteredKeywords });
+		if (key === 'tags') {
+			const filteredTags = selectedFilter.tags.filter((tag) => tag !== value);
+			setSelectedFilter({ ...selectedFilter, [key]: filteredTags });
 			return;
 		}
 
@@ -39,7 +39,7 @@ const JobSearchForm = (props: Props) => {
 
 	const handleSelectedFilterReset = () => {
 		setSelectedFilter({
-			keywords: [],
+			tags: [],
 			type: '',
 			minEmployees: '',
 			minSalary: '',
@@ -57,6 +57,10 @@ const JobSearchForm = (props: Props) => {
 			.join('&');
 
 		return queryString;
+	};
+
+	const isSelectedSomeFilter = () => {
+		return Object.values(selectedFilter).some((val) => val.length > 0);
 	};
 
 	useEffect(() => {
@@ -82,69 +86,72 @@ const JobSearchForm = (props: Props) => {
 					);
 				})}
 			</S.SelectWrapper>
-			<S.SelectedFilterChips>
-				{selectedFilter.keywords?.map((keyword, idx) => {
-					return (
+			{isSelectedSomeFilter() && (
+				<S.SelectedFilterChips>
+					{selectedFilter.tags?.map((tag, idx) => {
+						return (
+							<Chip
+								key={idx}
+								color="#e17055"
+								bgColor="#f9e2dd"
+								filterKey="tags"
+								filterValue={tag}
+								onChipDelete={handleChipDelete}
+							>
+								{tag}
+							</Chip>
+						);
+					})}
+					{selectedFilter.type && (
 						<Chip
-							key={idx}
-							color="#e17055"
-							bgColor="#f9e2dd"
-							filterKey="keywords"
-							filterValue={keyword}
+							color="#0095a3"
+							bgColor="#cceaed"
+							filterKey={'type'}
+							filterValue={selectedFilter.type}
 							onChipDelete={handleChipDelete}
 						>
-							{keyword}
+							{selectedFilter.type && `${selectedFilter.type}`}
 						</Chip>
-					);
-				})}
-				{selectedFilter.type && (
-					<Chip
-						color="#0095a3"
-						bgColor="#cceaed"
-						filterKey={'type'}
-						filterValue={selectedFilter.type}
-						onChipDelete={handleChipDelete}
-					>
-						{selectedFilter.type && `${selectedFilter.type}`}
-					</Chip>
-				)}
-				{selectedFilter.minEmployees && (
-					<Chip
-						color="#0984e3"
-						bgColor="#cee6f9"
-						filterKey="minEmployees"
-						filterValue={selectedFilter.minEmployees}
-						onChipDelete={handleChipDelete}
-					>
-						{selectedFilter.minEmployees}명 이상
-					</Chip>
-				)}
-				{selectedFilter.minSalary && (
-					<Chip
-						color="#6c5ce7"
-						bgColor="#e2defa"
-						filterKey="minSalary"
-						filterValue={selectedFilter.minSalary}
-						onChipDelete={handleChipDelete}
-					>
-						{selectedFilter.minSalary}원 이상
-					</Chip>
-				)}
-				{selectedFilter.sortedBy && (
-					<Chip
-						color="#636e72"
-						bgColor="#e0e2e3"
-						filterKey="sortedBy"
-						filterValue={selectedFilter.sortedBy}
-						onChipDelete={handleChipDelete}
-					>
-						{selectedFilter.sortedBy === 'POSTED' ? '최신순' : '마감순'}
-					</Chip>
-				)}
-				<S.SelectedFilterResetButton type="button" onClick={handleSelectedFilterReset}>
-					전체 초기화
-				</S.SelectedFilterResetButton>
-			</S.SelectedFilterChips>
+					)}
+					{selectedFilter.minEmployees && (
+						<Chip
+							color="#0984e3"
+							bgColor="#cee6f9"
+							filterKey="minEmployees"
+							filterValue={selectedFilter.minEmployees}
+							onChipDelete={handleChipDelete}
+						>
+							{selectedFilter.minEmployees}명 이상
+						</Chip>
+					)}
+					{selectedFilter.minSalary && (
+						<Chip
+							color="#6c5ce7"
+							bgColor="#e2defa"
+							filterKey="minSalary"
+							filterValue={selectedFilter.minSalary}
+							onChipDelete={handleChipDelete}
+						>
+							{selectedFilter.minSalary}원 이상
+						</Chip>
+					)}
+					{selectedFilter.sortedBy && (
+						<Chip
+							color="#636e72"
+							bgColor="#e0e2e3"
+							filterKey="sortedBy"
+							filterValue={selectedFilter.sortedBy}
+							onChipDelete={handleChipDelete}
+						>
+							{selectedFilter.sortedBy === 'POSTED' ? '최신순' : '마감순'}
+						</Chip>
+					)}
+
+					<S.SelectedFilterResetButton type="button" onClick={handleSelectedFilterReset}>
+						전체 초기화
+					</S.SelectedFilterResetButton>
+				</S.SelectedFilterChips>
+			)}
 		</S.Container>
 	);
 };
