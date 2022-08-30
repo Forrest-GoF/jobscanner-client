@@ -8,7 +8,7 @@ const spin = keyframes`
 `;
 
 export const JobListContainer = styled.div`
-	max-height: calc(100% - 240px);
+	max-height: calc(100% - 200px);
 	padding: 16px;
 	overflow-y: auto; ;
 `;

@@ -88,15 +88,15 @@ const JobDetail = () => {
 					</S.SubInfoWrapper>
 
 					<S.ButtonWrapper>
-						<Button type="button" onClick={() => console.log('칸반에 추가')} buttonType="normal" fontSize="0.7em">
+						<Button type="button" onClick={() => console.log('칸반에 추가')} buttonType="primary" fontSize="0.7em">
 							<BsFillKanbanFill style={{ marginRight: '6px' }} />
-							칸반에 추가
+							공고 현황에 추가
 						</Button>
 						<Button type="button" onClick={() => console.log('공고 링크 복사')} buttonType="normal" fontSize="0.7em">
 							<HiOutlinePaperClip style={{ marginRight: '6px' }} />
 							공고 링크 복사
 						</Button>
-						<LinkButton href={`${job?.applyUrl}`} target="_blank" buttonType="primary" fontSize="0.7em">
+						<LinkButton href={`${job?.applyUrl}`} target="_blank" buttonType="normal" fontSize="0.7em">
 							<BsFillArrowRightSquareFill style={{ marginRight: '6px' }} />
 							지원하기
 						</LinkButton>
@@ -114,7 +114,7 @@ const JobDetail = () => {
 
 					{job?.jobDetail?.introduction && (
 						<>
-							<S.DescriptionTitle>회사 소개</S.DescriptionTitle>
+							<S.DescriptionTitle>🏠 회사 소개</S.DescriptionTitle>
 							<S.DescriptionItemWrapper>{job?.jobDetail?.introduction}</S.DescriptionItemWrapper>
 							<br />
 						</>
@@ -122,7 +122,7 @@ const JobDetail = () => {
 
 					{job?.jobDetail?.mainTask && (
 						<>
-							<S.DescriptionTitle>주요 업무</S.DescriptionTitle>
+							<S.DescriptionTitle>🎯 주요 업무</S.DescriptionTitle>
 							<S.DescriptionItemWrapper>{job?.jobDetail?.mainTask}</S.DescriptionItemWrapper>
 							<br />
 						</>
@@ -130,7 +130,7 @@ const JobDetail = () => {
 
 					{job?.jobDetail?.qualification && (
 						<>
-							<S.DescriptionTitle>자격 요건</S.DescriptionTitle>
+							<S.DescriptionTitle>📝 자격 요건</S.DescriptionTitle>
 							<S.DescriptionItemWrapper>{job?.jobDetail?.qualification}</S.DescriptionItemWrapper>
 							<br />
 						</>
@@ -138,7 +138,7 @@ const JobDetail = () => {
 
 					{job?.jobDetail?.procedure && (
 						<>
-							<S.DescriptionTitle>지원 절차</S.DescriptionTitle>
+							<S.DescriptionTitle>💼 지원 절차</S.DescriptionTitle>
 							<S.DescriptionItemWrapper>{job?.jobDetail?.procedure}</S.DescriptionItemWrapper>
 							<br />
 						</>
@@ -146,7 +146,7 @@ const JobDetail = () => {
 
 					{job?.jobDetail?.benefit && (
 						<>
-							<S.DescriptionTitle>복지 및 혜택</S.DescriptionTitle>
+							<S.DescriptionTitle>🎉 복지 및 혜택</S.DescriptionTitle>
 							<S.DescriptionItemWrapper>{job?.jobDetail?.benefit}</S.DescriptionItemWrapper>
 							<br />
 						</>
@@ -154,7 +154,7 @@ const JobDetail = () => {
 
 					{job?.tags && job?.tags.length > 0 && (
 						<>
-							<S.DescriptionTitle>기술스택 ・ 툴</S.DescriptionTitle>
+							<S.DescriptionTitle>🛠 기술스택 ・ 툴</S.DescriptionTitle>
 							<S.TechStacksWrapper>
 								<S.TechStacks>
 									{job?.tags.map((tag, idx) => {

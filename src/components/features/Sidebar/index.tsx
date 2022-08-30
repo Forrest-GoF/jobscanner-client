@@ -23,7 +23,7 @@ const SideBar = () => {
 					<S.SideNavListTitle>Main</S.SideNavListTitle>
 
 					<S.SideNavListItem>
-						<S.SideNavListItemInnerWrapper to="/" selected={pathname === '/'}>
+						<S.SideNavListItemInnerWrapper to="/" selected={pathname === '/' || pathname.includes('/jobs')}>
 							<S.SideNavListItemIconWrapper>
 								<FaThList />
 							</S.SideNavListItemIconWrapper>
@@ -35,7 +35,7 @@ const SideBar = () => {
 							<S.SideNavListItemIconWrapper>
 								<BsFillKanbanFill />
 							</S.SideNavListItemIconWrapper>
-							공고 관리
+							공고 현황
 						</S.SideNavListItemInnerWrapper>
 					</S.SideNavListItem>
 				</S.SideNavList>

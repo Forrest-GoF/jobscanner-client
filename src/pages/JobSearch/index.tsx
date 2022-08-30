@@ -9,7 +9,7 @@ import { JobListItemResponse } from '@/types/apis/job';
 import LogoSymbol from '@/assets/images/shared/logo-symbol.svg';
 
 const JobSearch = () => {
-	const [page, setPage] = useState(1);
+	const [page, setPage] = useState(0);
 	const [jobSearchQueryString, setJobSearchQueryString] = useState('');
 	const [jobs, setJobs] = useState<JobListItemResponse[]>([]);
 
@@ -29,20 +29,26 @@ const JobSearch = () => {
 
 	const handleJobSearchQueryStringChange = (queryString: string) => {
 		setJobSearchQueryString(queryString);
+		handleResetCondition();
+	};
+
+	const handleResetCondition = () => {
+		setJobs([]);
+		setPage(0);
 	};
 
 	useEffect(() => {
 		if (inView) {
 			setPage(page + data?.length);
 		}
-	}, [inView]);
+	}, [inView, jobSearchQueryString]);
 
 	return (
 		<Layout>
 			<JobSearchForm onJobSearchQueryStringChange={handleJobSearchQueryStringChange} />
 			<S.JobListContainer>
 				<JobList jobs={jobs} />
-				{data?.length > 0 && (
+				{jobs?.length >= 20 && data?.length > 0 && (
 					<S.LoadingWrapper ref={ref}>
 						<img src={LogoSymbol} alt="심볼" />
 					</S.LoadingWrapper>

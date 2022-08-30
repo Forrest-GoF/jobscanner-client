@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-	height: calc(100vh - 51px);
-	padding: 2vh 2vw;
+	height: calc(100vh - 70px);
+	padding: 1em;
 	overflow-y: auto;
 `;
 
@@ -94,6 +94,7 @@ export const TechStacksWrapper = styled.div`
 
 export const TechStacks = styled.ul`
 	display: flex;
+	flex-wrap: wrap;
 	gap: 10px 8px;
 	font-size: 0.7em;
 `;
