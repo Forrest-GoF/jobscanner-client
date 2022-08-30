@@ -184,6 +184,7 @@ export const SocialSymbolWrapper = styled.span<StyledSocialSocialSymbolProps>`
 	justify-content: center;
 	margin-bottom: 4px;
 	padding: 10px;
+	border: 0.5px solid ${({ theme }) => theme.colors.grey[200]};
 	border-radius: 50%;
 	background-color: ${({ bgColor }) => bgColor};
 

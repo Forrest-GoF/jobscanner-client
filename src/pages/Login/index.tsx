@@ -3,6 +3,7 @@ import * as S from './styled';
 import { KAKAO_AUTH_URI } from '@/constants/auth';
 import { RiKakaoTalkFill, RiGithubFill } from 'react-icons/ri';
 import { AiOutlineMail } from 'react-icons/ai';
+import { FcGoogle } from 'react-icons/fc';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import LogoEN from '@/assets/images/shared/logo-en.svg';
 import BannerImg1 from '@/assets/images/login/job-search.svg';
@@ -93,6 +94,12 @@ const Login = () => {
 
 					<S.PerforationText>다른 계정으로 로그인</S.PerforationText>
 					<S.SocialLoginButtonWrapper>
+						<S.SocialLoginButton type="button">
+							<S.SocialSymbolWrapper bgColor="#ffffff">
+								<FcGoogle />
+							</S.SocialSymbolWrapper>
+							<S.SocialSymbolTitle>Google</S.SocialSymbolTitle>
+						</S.SocialLoginButton>
 						<S.SocialLoginButton type="button">
 							<S.SocialSymbolWrapper bgColor="#FEE500" onClick={() => handleKakaoLoginBtnClick()}>
 								<RiKakaoTalkFill />
