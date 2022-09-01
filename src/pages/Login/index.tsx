@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import * as S from './styled';
-import { KAKAO_AUTH_URI } from '@/constants/auth';
+import { authorizationCodeURIs } from '@/constants/auth';
 import { RiKakaoTalkFill, RiGithubFill } from 'react-icons/ri';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
@@ -13,8 +13,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 
 const Login = () => {
-	const handleKakaoLoginBtnClick = () => {
-		window.location.href = KAKAO_AUTH_URI;
+	const handleSocialLoginBtnClick = (social: string) => {
+		window.location.href = authorizationCodeURIs[social];
 	};
 
 	return (
@@ -95,19 +95,23 @@ const Login = () => {
 					<S.PerforationText>다른 계정으로 로그인</S.PerforationText>
 					<S.SocialLoginButtonWrapper>
 						<S.SocialLoginButton type="button">
-							<S.SocialSymbolWrapper bgColor="#ffffff">
+							<S.SocialSymbolWrapper bgColor="#ffffff" onClick={() => handleSocialLoginBtnClick('google')}>
 								<FcGoogle />
 							</S.SocialSymbolWrapper>
 							<S.SocialSymbolTitle>Google</S.SocialSymbolTitle>
 						</S.SocialLoginButton>
 						<S.SocialLoginButton type="button">
-							<S.SocialSymbolWrapper bgColor="#FEE500" onClick={() => handleKakaoLoginBtnClick()}>
+							<S.SocialSymbolWrapper bgColor="#FEE500" onClick={() => handleSocialLoginBtnClick('kakao')}>
 								<RiKakaoTalkFill />
 							</S.SocialSymbolWrapper>
 							<S.SocialSymbolTitle>Kakao</S.SocialSymbolTitle>
 						</S.SocialLoginButton>
 						<S.SocialLoginButton type="button">
-							<S.SocialSymbolWrapper bgColor="#24292E" fill="#ffffff">
+							<S.SocialSymbolWrapper
+								bgColor="#24292E"
+								fill="#ffffff"
+								onClick={() => handleSocialLoginBtnClick('github')}
+							>
 								<RiGithubFill />
 							</S.SocialSymbolWrapper>
 							<S.SocialSymbolTitle>Github</S.SocialSymbolTitle>
