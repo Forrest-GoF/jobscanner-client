@@ -13,11 +13,10 @@ export const RESPONSE_FAIL_CONFIICT = 409;
 export const PATH = {
 	auth: {
 		index: '/auth',
+		signin: '/signin',
 		signup: '/signup',
-		kakao: '/kakao',
-		refresh: '/refresh',
-		login: '/login',
 		logout: '/logout',
+		refresh: '/refresh',
 	},
 	user: {
 		info: '/user/info',
