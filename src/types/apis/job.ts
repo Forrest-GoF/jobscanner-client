@@ -11,7 +11,7 @@ export type JobListItemResponse = {
 
 export type JobListItemsResponse = {
 	jobs: JobListItemResponse[];
-	length: number;
+	length?: number;
 };
 
 export type JobDetailResponse = {

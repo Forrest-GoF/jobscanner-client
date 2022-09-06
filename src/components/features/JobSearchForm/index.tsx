@@ -10,7 +10,14 @@ type Props = {
 };
 
 const JobSearchForm = (props: Props) => {
-	const [selectedFilter, setSelectedFilter] = useState({
+	const [selectedFilter, setSelectedFilter] = useState<{
+		[key: string]: any;
+		tags: string[];
+		type: string;
+		minEmployees: string;
+		minSalary: string;
+		sortedBy: string;
+	}>({
 		tags: [],
 		type: '',
 		minEmployees: '',

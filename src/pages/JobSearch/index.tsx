@@ -39,7 +39,7 @@ const JobSearch = () => {
 
 	useEffect(() => {
 		if (inView) {
-			setPage(page + data?.length);
+			!!data && setPage(page + data?.length);
 		}
 	}, [inView, jobSearchQueryString]);
 
@@ -48,7 +48,7 @@ const JobSearch = () => {
 			<JobSearchForm onJobSearchQueryStringChange={handleJobSearchQueryStringChange} />
 			<S.JobListContainer>
 				<JobList jobs={jobs} />
-				{jobs?.length >= 20 && data?.length > 0 && (
+				{jobs?.length >= 20 && !!data && data?.length > 0 && (
 					<S.LoadingWrapper ref={ref}>
 						<img src={LogoSymbol} alt="심볼" />
 					</S.LoadingWrapper>
