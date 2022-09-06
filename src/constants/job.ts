@@ -1,7 +1,7 @@
 export const TECH_STACK_SHOW_END = 3;
 export const TECH_STACK_SHOW_START = 0;
 
-export const JOB_SEARCH_SELECT_ITEMS = [
+export const JOB_SEARCH_SELECT_ITEMS: { [key: string]: any }[] = [
 	{
 		id: 1,
 		placeholder: '경력',
