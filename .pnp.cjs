@@ -48,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/eslint", "npm:8.4.5"],\
             ["@types/node", "npm:18.6.3"],\
             ["@types/prettier", "npm:2.6.4"],\
+            ["@types/prop-types", "npm:15.7.5"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-router-dom", "npm:5.3.3"],\
@@ -62,8 +63,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.30.1"],\
             ["eslint-plugin-react-hooks", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.6.0"],\
             ["prettier", "npm:2.7.1"],\
+            ["prop-types", "npm:15.8.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:18.2.0"],\
+            ["react-ga", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:3.3.1"],\
             ["react-icons", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.4.0"],\
             ["react-intersection-observer", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:9.4.0"],\
             ["react-router-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:6.3.0"],\
@@ -5684,6 +5687,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/eslint", "npm:8.4.5"],\
             ["@types/node", "npm:18.6.3"],\
             ["@types/prettier", "npm:2.6.4"],\
+            ["@types/prop-types", "npm:15.7.5"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-router-dom", "npm:5.3.3"],\
@@ -5698,8 +5702,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.30.1"],\
             ["eslint-plugin-react-hooks", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.6.0"],\
             ["prettier", "npm:2.7.1"],\
+            ["prop-types", "npm:15.8.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:18.2.0"],\
+            ["react-ga", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:3.3.1"],\
             ["react-icons", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.4.0"],\
             ["react-intersection-observer", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:9.4.0"],\
             ["react-router-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:6.3.0"],\
@@ -6507,6 +6513,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "packagePeers": [\
             "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-ga", [\
+        ["npm:3.3.1", {\
+          "packageLocation": "./.yarn/cache/react-ga-npm-3.3.1-de5c01fc6e-3026976d02.zip/node_modules/react-ga/",\
+          "packageDependencies": [\
+            ["react-ga", "npm:3.3.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:3.3.1", {\
+          "packageLocation": "./.yarn/__virtual__/react-ga-virtual-715e033298/0/cache/react-ga-npm-3.3.1-de5c01fc6e-3026976d02.zip/node_modules/react-ga/",\
+          "packageDependencies": [\
+            ["react-ga", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:3.3.1"],\
+            ["@types/prop-types", "npm:15.7.5"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/prop-types",\
+            "@types/react",\
+            "prop-types",\
             "react"\
           ],\
           "linkType": "HARD"\

@@ -1934,7 +1934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*":
+"@types/prop-types@npm:*, @types/prop-types@npm:^15":
   version: 15.7.5
   resolution: "@types/prop-types@npm:15.7.5"
   checksum: 5b43b8b15415e1f298243165f1d44390403bb2bd42e662bca3b5b5633fdd39c938e91b7fce3a9483699db0f7a715d08cef220c121f723a634972fdf596aec980
@@ -3949,6 +3949,7 @@ __metadata:
     "@types/eslint": ^8
     "@types/node": ^18.6.3
     "@types/prettier": ^2
+    "@types/prop-types": ^15
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
     "@types/react-router-dom": ^5.3.3
@@ -3963,8 +3964,10 @@ __metadata:
     eslint-plugin-react: ^7.30.1
     eslint-plugin-react-hooks: ^4.6.0
     prettier: ^2.7.1
+    prop-types: ^15.8.1
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-ga: ^3.3.1
     react-icons: ^4.4.0
     react-intersection-observer: ^9.4.0
     react-router-dom: ^6.3.0
@@ -4659,6 +4662,16 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+  languageName: node
+  linkType: hard
+
+"react-ga@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "react-ga@npm:3.3.1"
+  peerDependencies:
+    prop-types: ^15.6.0
+    react: ^15.6.2 || ^16.0 || ^17 || ^18
+  checksum: 3026976d0249fbf80e7b5dad7707964198064d7ac460f3397de40524e76dd6c29dead0900f850e2bd3135a86a9b083af8cda9cfa087f195852bf8d2b17c1fcfb
   languageName: node
   linkType: hard
 
