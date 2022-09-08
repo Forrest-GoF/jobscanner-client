@@ -6,6 +6,7 @@ import { RESPONSE_SUCCESS_CREATED, RESPONSE_SUCCESS_OK } from '@/constants/api';
 import { KEYS, setLocalStorageItem } from '@/utils/storage';
 import { userInfoState } from '@/stores/user';
 import { useSetRecoilState } from 'recoil';
+import * as Sentry from '@sentry/react';
 import * as S from './styled';
 
 const OAuthRedirect = () => {
@@ -28,18 +29,22 @@ const OAuthRedirect = () => {
 		 * 2. 서버로부터 [유저정보, 앱 토큰, 리프레쉬 토큰] 을 응답 받는다.
 		 * 3. 서버로의 응답코드([200, 로그인성공] or [201, 신규 유저 온보딩])에 따라 라우팅한다.
 		 */
-		const { data, status } = await socialLogin(authorizationCode, social);
+		try {
+			const { data, status } = await socialLogin(authorizationCode, social);
 
-		setLocalStorageItem(KEYS.JOB_STORY_ACCESS_TOKEN, data.appToken);
-		setLocalStorageItem(KEYS.JOB_STORY_REFRESH_TOKEN, data.refreshToken);
-		setUserInfo(data.memberResponse);
+			setLocalStorageItem(KEYS.JOB_STORY_ACCESS_TOKEN, data.appToken);
+			setLocalStorageItem(KEYS.JOB_STORY_REFRESH_TOKEN, data.refreshToken);
+			setUserInfo(data.memberResponse);
 
-		if (status === RESPONSE_SUCCESS_OK) {
-			navigator('/');
-		}
+			if (status === RESPONSE_SUCCESS_OK) {
+				navigator('/');
+			}
 
-		if (status === RESPONSE_SUCCESS_CREATED) {
-			navigator('/onboarding');
+			if (status === RESPONSE_SUCCESS_CREATED) {
+				navigator('/onboarding');
+			}
+		} catch (error) {
+			Sentry.captureException(error);
 		}
 	}, []);
 
