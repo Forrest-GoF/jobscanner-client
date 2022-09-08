@@ -40,6 +40,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/babel-plugin", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:11.10.0"],\
             ["@emotion/react", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:11.10.0"],\
             ["@emotion/styled", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:11.10.0"],\
+            ["@sentry/react", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.12.1"],\
+            ["@sentry/tracing", "npm:7.12.1"],\
             ["@tanstack/react-query", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.0.10"],\
             ["@types/babel__core", "npm:7.1.19"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\
@@ -2947,6 +2949,104 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@sentry/browser", [\
+        ["npm:7.12.1", {\
+          "packageLocation": "./.yarn/cache/@sentry-browser-npm-7.12.1-c2ca597609-7aba4ea056.zip/node_modules/@sentry/browser/",\
+          "packageDependencies": [\
+            ["@sentry/browser", "npm:7.12.1"],\
+            ["@sentry/core", "npm:7.12.1"],\
+            ["@sentry/types", "npm:7.12.1"],\
+            ["@sentry/utils", "npm:7.12.1"],\
+            ["tslib", "npm:1.14.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sentry/core", [\
+        ["npm:7.12.1", {\
+          "packageLocation": "./.yarn/cache/@sentry-core-npm-7.12.1-4c562c8c6e-c8cd62220a.zip/node_modules/@sentry/core/",\
+          "packageDependencies": [\
+            ["@sentry/core", "npm:7.12.1"],\
+            ["@sentry/hub", "npm:7.12.1"],\
+            ["@sentry/types", "npm:7.12.1"],\
+            ["@sentry/utils", "npm:7.12.1"],\
+            ["tslib", "npm:1.14.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sentry/hub", [\
+        ["npm:7.12.1", {\
+          "packageLocation": "./.yarn/cache/@sentry-hub-npm-7.12.1-5dd0d6295b-f6607969a0.zip/node_modules/@sentry/hub/",\
+          "packageDependencies": [\
+            ["@sentry/hub", "npm:7.12.1"],\
+            ["@sentry/types", "npm:7.12.1"],\
+            ["@sentry/utils", "npm:7.12.1"],\
+            ["tslib", "npm:1.14.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sentry/react", [\
+        ["npm:7.12.1", {\
+          "packageLocation": "./.yarn/cache/@sentry-react-npm-7.12.1-af18a9b178-f75f949bde.zip/node_modules/@sentry/react/",\
+          "packageDependencies": [\
+            ["@sentry/react", "npm:7.12.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.12.1", {\
+          "packageLocation": "./.yarn/__virtual__/@sentry-react-virtual-8c434e6b7d/0/cache/@sentry-react-npm-7.12.1-af18a9b178-f75f949bde.zip/node_modules/@sentry/react/",\
+          "packageDependencies": [\
+            ["@sentry/react", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.12.1"],\
+            ["@sentry/browser", "npm:7.12.1"],\
+            ["@sentry/types", "npm:7.12.1"],\
+            ["@sentry/utils", "npm:7.12.1"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["hoist-non-react-statics", "npm:3.3.2"],\
+            ["react", "npm:18.2.0"],\
+            ["tslib", "npm:1.14.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sentry/tracing", [\
+        ["npm:7.12.1", {\
+          "packageLocation": "./.yarn/cache/@sentry-tracing-npm-7.12.1-98c11c50db-6135bb2df8.zip/node_modules/@sentry/tracing/",\
+          "packageDependencies": [\
+            ["@sentry/tracing", "npm:7.12.1"],\
+            ["@sentry/hub", "npm:7.12.1"],\
+            ["@sentry/types", "npm:7.12.1"],\
+            ["@sentry/utils", "npm:7.12.1"],\
+            ["tslib", "npm:1.14.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sentry/types", [\
+        ["npm:7.12.1", {\
+          "packageLocation": "./.yarn/cache/@sentry-types-npm-7.12.1-5ddb944198-5a60d8c92e.zip/node_modules/@sentry/types/",\
+          "packageDependencies": [\
+            ["@sentry/types", "npm:7.12.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@sentry/utils", [\
+        ["npm:7.12.1", {\
+          "packageLocation": "./.yarn/cache/@sentry-utils-npm-7.12.1-c601bb806b-22fa506c6e.zip/node_modules/@sentry/utils/",\
+          "packageDependencies": [\
+            ["@sentry/utils", "npm:7.12.1"],\
+            ["@sentry/types", "npm:7.12.1"],\
+            ["tslib", "npm:1.14.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@tanstack/query-core", [\
         ["npm:4.0.10", {\
           "packageLocation": "./.yarn/cache/@tanstack-query-core-npm-4.0.10-bfce14d654-581d4506c5.zip/node_modules/@tanstack/query-core/",\
@@ -5576,6 +5676,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/babel-plugin", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:11.10.0"],\
             ["@emotion/react", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:11.10.0"],\
             ["@emotion/styled", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:11.10.0"],\
+            ["@sentry/react", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.12.1"],\
+            ["@sentry/tracing", "npm:7.12.1"],\
             ["@tanstack/react-query", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.0.10"],\
             ["@types/babel__core", "npm:7.1.19"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\

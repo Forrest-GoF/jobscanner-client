@@ -1721,6 +1721,85 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/browser@npm:7.12.1":
+  version: 7.12.1
+  resolution: "@sentry/browser@npm:7.12.1"
+  dependencies:
+    "@sentry/core": 7.12.1
+    "@sentry/types": 7.12.1
+    "@sentry/utils": 7.12.1
+    tslib: ^1.9.3
+  checksum: 7aba4ea056a2aa1b8d619f85f0f20643392fb288598e4399c6d83dd35991f174311030979a5f7a61a9e57a4ecc43c0989ba4e0fae98554bed2528e095071e8e2
+  languageName: node
+  linkType: hard
+
+"@sentry/core@npm:7.12.1":
+  version: 7.12.1
+  resolution: "@sentry/core@npm:7.12.1"
+  dependencies:
+    "@sentry/hub": 7.12.1
+    "@sentry/types": 7.12.1
+    "@sentry/utils": 7.12.1
+    tslib: ^1.9.3
+  checksum: c8cd62220a327bb4f7b1a97503c19b40710da0d880d7b881384e224aa470c983410c836d5dd85a2cd88166301771a0cea3fd2f93b53d17b29e82457282bb7d01
+  languageName: node
+  linkType: hard
+
+"@sentry/hub@npm:7.12.1":
+  version: 7.12.1
+  resolution: "@sentry/hub@npm:7.12.1"
+  dependencies:
+    "@sentry/types": 7.12.1
+    "@sentry/utils": 7.12.1
+    tslib: ^1.9.3
+  checksum: f6607969a0dd16e6892ec56675a5dadcde20f39a031a39541816ae1a56a65cc4f26b942859c85ce40992c8a0959020bf0c27e4bd68bdc96adcf499ce6f147252
+  languageName: node
+  linkType: hard
+
+"@sentry/react@npm:^7.12.1":
+  version: 7.12.1
+  resolution: "@sentry/react@npm:7.12.1"
+  dependencies:
+    "@sentry/browser": 7.12.1
+    "@sentry/types": 7.12.1
+    "@sentry/utils": 7.12.1
+    hoist-non-react-statics: ^3.3.2
+    tslib: ^1.9.3
+  peerDependencies:
+    react: 15.x || 16.x || 17.x || 18.x
+  checksum: f75f949bde28b1a8ced5c0b5bd7a880e61fe062ffb256e3ffaecc649c8ed201fa34ef3714aacd8678144bddc0907884196cf0d61f9855d08059338f64cc83d9c
+  languageName: node
+  linkType: hard
+
+"@sentry/tracing@npm:^7.12.1":
+  version: 7.12.1
+  resolution: "@sentry/tracing@npm:7.12.1"
+  dependencies:
+    "@sentry/hub": 7.12.1
+    "@sentry/types": 7.12.1
+    "@sentry/utils": 7.12.1
+    tslib: ^1.9.3
+  checksum: 6135bb2df812f309d6018d21fea63fb35e14d7b6a04589924814b73eff4d3838b9028cd5651ad872badd315a08bf736a83963db02a5becfa5b3b971b72456462
+  languageName: node
+  linkType: hard
+
+"@sentry/types@npm:7.12.1":
+  version: 7.12.1
+  resolution: "@sentry/types@npm:7.12.1"
+  checksum: 5a60d8c92ecf4f69a5e584441312d42acbc87f7865e78079e8f8757474874b0deae69707f2d0e74ea0e6bf1665b1d7887e201a53154ddfecb2630a0d5a200342
+  languageName: node
+  linkType: hard
+
+"@sentry/utils@npm:7.12.1":
+  version: 7.12.1
+  resolution: "@sentry/utils@npm:7.12.1"
+  dependencies:
+    "@sentry/types": 7.12.1
+    tslib: ^1.9.3
+  checksum: 22fa506c6e3116ec950a10aaf98929b70264c90fa83bfb4752da779753f312277a44f705c45102ce06b1781d99db2ea4e4e66662d0fde1792e8cae2559e63b5b
+  languageName: node
+  linkType: hard
+
 "@tanstack/query-core@npm:^4.0.0-beta.1":
   version: 4.0.10
   resolution: "@tanstack/query-core@npm:4.0.10"
@@ -3566,7 +3645,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hoist-non-react-statics@npm:^3.3.1":
+"hoist-non-react-statics@npm:^3.3.1, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
   dependencies:
@@ -3862,6 +3941,8 @@ __metadata:
     "@emotion/babel-plugin": ^11.10.0
     "@emotion/react": ^11.10.0
     "@emotion/styled": ^11.10.0
+    "@sentry/react": ^7.12.1
+    "@sentry/tracing": ^7.12.1
     "@tanstack/react-query": ^4.0.10
     "@types/babel__core": ^7
     "@types/babel__preset-env": ^7
