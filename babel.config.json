@@ -10,5 +10,11 @@
 		],
 		"@babel/preset-react",
 		"@babel/preset-typescript"
-	]
+	],
+	"env": {
+		"production": {
+			"plugins": ["@emotion"]
+		}
+	},
+	"plugins": ["@emotion"]
 }
