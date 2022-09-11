@@ -23,6 +23,7 @@ const OAuthRedirect = () => {
 				? locator.search.split(AUTHORIZATION_CODE_SEPERATORS)[1].split('&')[0]
 				: locator.search.split(AUTHORIZATION_CODE_SEPERATORS)[1];
 
+		console.log(authorizationCode);
 		/**
 		 * TODO: [유저정보, 앱 토큰, 리프레쉬 토큰] 을 응답받는다.
 		 * 1. 클라이언트는 서버에 소셜 로그인 플랫폼, 인가코드 정보를 서버에 넘긴다.

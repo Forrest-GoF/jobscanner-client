@@ -8,6 +8,7 @@ const Routers = () => {
 			<Route path="/jobs/:jobId" element={<JobDetail />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/oauth/callback/:social" element={<OAuthRedirect />} />
+			<Route path="/oauth/callback" element={<OAuthRedirect />} />
 			<Route path="/kanban" element={<MyKanban />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>

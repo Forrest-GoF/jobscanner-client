@@ -12,7 +12,7 @@ export const socialLogin = async (authorizationCode: string, social?: string) =>
 		method: POST,
 		url: `${index}${signin}${social && `/${social}`}`,
 		headers: {
-			authorizationCode,
+			Code: authorizationCode,
 		},
 	});
 	return { data, status };

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 import { StyledLinkButtonProps } from './type';
 
 export const Container = styled.div<StyledLinkButtonProps>`
@@ -29,7 +30,7 @@ export const Container = styled.div<StyledLinkButtonProps>`
 	}
 `;
 
-export const LinkButton = styled.a<StyledLinkButtonProps>`
+export const LinkButton = styled(Link)<StyledLinkButtonProps>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
