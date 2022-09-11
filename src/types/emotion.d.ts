@@ -1,4 +1,4 @@
-import '@emotion/styled';
+import '@emotion/react';
 
 declare module '@emotion/react' {
 	export interface Theme {
