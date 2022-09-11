@@ -14,8 +14,8 @@ export const PATH = {
 	auth: {
 		index: '/auth',
 		signin: '/signin',
-		signup: '/signup',
 		logout: '/logout',
+		signup: '/signup',
 		refresh: '/refresh',
 	},
 	user: {
