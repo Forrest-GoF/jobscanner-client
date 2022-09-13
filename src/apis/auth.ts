@@ -19,6 +19,6 @@ export const socialLogin = async (authorizationCode: string, social?: string) =>
 };
 
 export const logout = async () => {
-	removeLocalStorageItem(KEYS.JOB_STORY_ACCESS_TOKEN);
-	removeLocalStorageItem(KEYS.JOB_STORY_REFRESH_TOKEN);
+	removeLocalStorageItem(KEYS.JOB_SCANNER_ACCESS_TOKEN);
+	removeLocalStorageItem(KEYS.JOB_SCANNER_REFRESH_TOKEN);
 };

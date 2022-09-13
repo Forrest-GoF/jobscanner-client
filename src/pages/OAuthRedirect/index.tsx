@@ -23,18 +23,11 @@ const OAuthRedirect = () => {
 				? locator.search.split(AUTHORIZATION_CODE_SEPERATORS)[1].split('&')[0]
 				: locator.search.split(AUTHORIZATION_CODE_SEPERATORS)[1];
 
-		console.log(authorizationCode);
-		/**
-		 * TODO: [유저정보, 앱 토큰, 리프레쉬 토큰] 을 응답받는다.
-		 * 1. 클라이언트는 서버에 소셜 로그인 플랫폼, 인가코드 정보를 서버에 넘긴다.
-		 * 2. 서버로부터 [유저정보, 앱 토큰, 리프레쉬 토큰] 을 응답 받는다.
-		 * 3. 서버로의 응답코드([200, 로그인성공] or [201, 신규 유저 온보딩])에 따라 라우팅한다.
-		 */
 		try {
 			const { data, status } = await socialLogin(authorizationCode, social);
 
-			setLocalStorageItem(KEYS.JOB_STORY_ACCESS_TOKEN, data.appToken);
-			setLocalStorageItem(KEYS.JOB_STORY_REFRESH_TOKEN, data.refreshToken);
+			setLocalStorageItem(KEYS.JOB_SCANNER_ACCESS_TOKEN, data.appToken);
+			setLocalStorageItem(KEYS.JOB_SCANNER_REFRESH_TOKEN, data.refreshToken);
 			setUserInfo(data.memberResponse);
 
 			if (status === RESPONSE_SUCCESS_OK) {
