@@ -17,7 +17,7 @@ const createAxiosInstance = () => {
 const axiosInstance = createAxiosInstance();
 
 export async function requester<Payload>(option: AxiosRequestConfig) {
-	const ACCESS_TOKEN = getLocalStorageItem(KEYS.JOB_STORY_ACCESS_TOKEN);
+	const ACCESS_TOKEN = getLocalStorageItem(KEYS.JOB_SCANNER_ACCESS_TOKEN);
 	const response: AxiosResponse<Payload> = await axiosInstance(
 		ACCESS_TOKEN
 			? {
