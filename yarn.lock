@@ -3979,6 +3979,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-ga: ^3.3.1
+    react-hook-form: ^7.35.0
     react-icons: ^4.4.0
     react-intersection-observer: ^9.4.0
     react-router-dom: ^6.3.0
@@ -4683,6 +4684,15 @@ __metadata:
     prop-types: ^15.6.0
     react: ^15.6.2 || ^16.0 || ^17 || ^18
   checksum: 3026976d0249fbf80e7b5dad7707964198064d7ac460f3397de40524e76dd6c29dead0900f850e2bd3135a86a9b083af8cda9cfa087f195852bf8d2b17c1fcfb
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.35.0":
+  version: 7.35.0
+  resolution: "react-hook-form@npm:7.35.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: e0e78de4a08fdae9eebf248ddefd99ff35d4964ef2815006704ae4a43972786f62dede3847b41e29d3e89ea6cb16c8f5837b1e00238aa65f7c38cb52aabcaf5b
   languageName: node
   linkType: hard
 

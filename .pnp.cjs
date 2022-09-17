@@ -67,6 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:18.2.0"],\
             ["react-ga", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:3.3.1"],\
+            ["react-hook-form", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.35.0"],\
             ["react-icons", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.4.0"],\
             ["react-intersection-observer", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:9.4.0"],\
             ["react-router-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:6.3.0"],\
@@ -5730,6 +5731,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:18.2.0"],\
             ["react-ga", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:3.3.1"],\
+            ["react-hook-form", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.35.0"],\
             ["react-icons", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:4.4.0"],\
             ["react-intersection-observer", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:9.4.0"],\
             ["react-router-dom", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:6.3.0"],\
@@ -6563,6 +6565,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/prop-types",\
             "@types/react",\
             "prop-types",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-hook-form", [\
+        ["npm:7.35.0", {\
+          "packageLocation": "./.yarn/cache/react-hook-form-npm-7.35.0-249f80081f-e0e78de4a0.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "npm:7.35.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.35.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-f301f39079/0/cache/react-hook-form-npm-7.35.0-249f80081f-e0e78de4a0.zip/node_modules/react-hook-form/",\
+          "packageDependencies": [\
+            ["react-hook-form", "virtual:8bfa71413db5e350eeabfa0404d66e09d3aa41ec5b044c930b527eee8da8f7b853f4b66edbf8f6985c42042bd13917f2a3c0bc37028761a2aec5374d8398cf98#npm:7.35.0"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
             "react"\
           ],\
           "linkType": "HARD"\
