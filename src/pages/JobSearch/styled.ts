@@ -7,10 +7,18 @@ const spin = keyframes`
   }
 `;
 
+export const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: ${({ theme }) => theme.maxWidth};
+	margin: 0 auto;
+	padding: 3em 3em 0 3em;
+`;
+
 export const JobListContainer = styled.div`
 	max-height: calc(100% - 200px);
-	padding: 16px;
-	overflow-y: auto; ;
+	overflow-y: auto;
 `;
 
 export const LoadingWrapper = styled.div`

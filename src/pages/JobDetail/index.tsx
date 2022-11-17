@@ -1,174 +1,196 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getJob } from '@/apis/job';
 import Layout from '@/components/layout';
 import * as S from './styled';
-import { Button, LinkButton } from '@/components/shared';
-import { BsFillKanbanFill, BsFillArrowRightSquareFill } from 'react-icons/bs';
-import { ImLocation } from 'react-icons/im';
+import { Button, Chip, Bookmark} from '@/components';
 import { GrPersonalComputer, GrBriefcase, GrMoney } from 'react-icons/gr';
 import { FaUserGraduate } from 'react-icons/fa';
 import { SiHandshake } from 'react-icons/si';
-import { HiOutlinePaperClip } from 'react-icons/hi';
-import { Chip } from '@/components/shared';
 import { getDateAgoText } from '@/utils/day';
+import { CheckIcon, ClipIcon } from '@/assets/images/icons';
 
 const JobDetail = () => {
 	const { jobId } = useParams();
-	const { data: job } = useQuery(['getJob'], () => getJob(Number(jobId)));
+	const [bookmarkToggle, setBookmarkToggle] = useState<boolean>();
+	const { data: job } = useQuery(['getJob', bookmarkToggle], () => getJob(Number(jobId)), {
+		onSuccess: () => {
+			setBookmarkToggle(job?.bookmarkActivated);
+		},
+	});
+
+  const handleCopyURLInClipboard = () => {
+    window.navigator.clipboard.writeText(window.location.href).then(() => alert('클립보드에 복사되었습니다.'));
+  }
 
 	return (
 		<Layout>
 			<S.Container>
-				<S.DetailIntro>
-					<S.JobTitle>{job?.title}</S.JobTitle>
-					<S.CompanyName>{job?.company.name}</S.CompanyName>
-					<S.ApplyPeriod>
-						{job?.postedAt && job?.expiredAt ? (
-							<>
-								{job?.postedAt} ~ {job?.expiredAt} <strong>{`(${getDateAgoText(job?.expiredAt)})`}</strong>
-							</>
-						) : (
-							'상시 모집'
-						)}
-					</S.ApplyPeriod>
-					<S.Location>
-						{job?.location && (
-							<>
-								<ImLocation style={{ marginRight: '4px' }} />
-								{job?.location}
-							</>
-						)}
-					</S.Location>
-					<S.SubInfoWrapper>
-						<S.SubInfoItemWrapper>
-							{job?.type && (
-								<>
-									<SiHandshake style={{ marginRight: '4px' }} />
-									{job?.type}
-								</>
-							)}
-						</S.SubInfoItemWrapper>
-						<S.SubInfoItemWrapper>
-							{job?.salary ? (
-								<>
-									<GrMoney style={{ marginRight: '4px' }} />
-									{job?.salary}
-								</>
-							) : (
-								'회사 내규'
-							)}
-						</S.SubInfoItemWrapper>
-						<S.SubInfoItemWrapper>
-							{job?.platform && (
-								<>
-									<GrBriefcase style={{ marginRight: '4px' }} />
-									{job?.platform}
-								</>
-							)}
-						</S.SubInfoItemWrapper>
-					</S.SubInfoWrapper>
-					<S.SubInfoWrapper>
-						<S.SubInfoItemWrapper>
-							{job?.education && (
-								<>
-									<FaUserGraduate style={{ marginRight: '4px' }} />
-									{job?.education}
-								</>
-							)}
-						</S.SubInfoItemWrapper>
-						<S.SubInfoItemWrapper>
-							{job?.career && (
-								<>
-									<GrPersonalComputer style={{ marginRight: '4px' }} />
-									{job?.career}
-								</>
-							)}
-						</S.SubInfoItemWrapper>
-					</S.SubInfoWrapper>
+				<S.InnerContainer>
+					<S.DetailDescription>
+						<S.DetailIntroWrapper>
+							<S.DetailIntroTitleWrapper>
+								<S.JobTitle>{job?.title}</S.JobTitle>
+								{job?.bookmarkActivated !== undefined && (
+									<Bookmark jobId={job?.id} bookmarkActivated={job?.bookmarkActivated} top={'1.25em'} right={'1em'} />
+								)}
+							</S.DetailIntroTitleWrapper>
 
-					<S.ButtonWrapper>
-						<Button type="button" onClick={() => console.log('칸반에 추가')} buttonType="primary" fontSize="0.7em">
-							<BsFillKanbanFill style={{ marginRight: '6px' }} />
-							공고 현황에 추가
-						</Button>
-						<Button type="button" onClick={() => console.log('공고 링크 복사')} buttonType="normal" fontSize="0.7em">
-							<HiOutlinePaperClip style={{ marginRight: '6px' }} />
-							공고 링크 복사
-						</Button>
-						<LinkButton href={`${job?.applyUrl}`} target="_blank" buttonType="normal" fontSize="0.7em">
-							<BsFillArrowRightSquareFill style={{ marginRight: '6px' }} />
-							지원하기
-						</LinkButton>
-					</S.ButtonWrapper>
-				</S.DetailIntro>
+							<S.DetailIntroSubTitleWrapper>
+								<S.CompanyName>{job?.company?.name}</S.CompanyName>
+								<S.Location>{job?.location}</S.Location>
+							</S.DetailIntroSubTitleWrapper>
 
-				<S.DetailDescription>
-					{job?.jobDetail?.summary && (
-						<>
-							<S.DescriptionTitle>공고 요약</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{job?.jobDetail?.summary}</S.DescriptionItemWrapper>
-							<br />
-						</>
-					)}
+							<S.DetailIntroSubInfoWrapper>
+								<S.DetailIntroSubInfo>
+									{job?.type && (
+										<>
+											<SiHandshake style={{ marginRight: '4px' }} />
+											{job?.type}
+										</>
+									)}
+								</S.DetailIntroSubInfo>
 
-					{job?.jobDetail?.introduction && (
-						<>
-							<S.DescriptionTitle>🏠 회사 소개</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{job?.jobDetail?.introduction}</S.DescriptionItemWrapper>
-							<br />
-						</>
-					)}
+								<S.DetailIntroSubInfo>
+									{job?.salary ? (
+										<>
+											<GrMoney style={{ marginRight: '4px' }} />
+											{job?.salary}
+										</>
+									) : (
+										<>
+											<GrMoney style={{ marginRight: '4px' }} />
+											회사 내규
+										</>
+									)}
+								</S.DetailIntroSubInfo>
 
-					{job?.jobDetail?.mainTask && (
-						<>
-							<S.DescriptionTitle>🎯 주요 업무</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{job?.jobDetail?.mainTask}</S.DescriptionItemWrapper>
-							<br />
-						</>
-					)}
+								<S.DetailIntroSubInfo>
+									{job?.platform && (
+										<>
+											<GrBriefcase style={{ marginRight: '4px' }} />
+											{job?.platform}
+										</>
+									)}
+								</S.DetailIntroSubInfo>
 
-					{job?.jobDetail?.qualification && (
-						<>
-							<S.DescriptionTitle>📝 자격 요건</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{job?.jobDetail?.qualification}</S.DescriptionItemWrapper>
-							<br />
-						</>
-					)}
+								<S.DetailIntroSubInfo>
+									{job?.education && (
+										<>
+											<FaUserGraduate style={{ marginRight: '4px' }} />
+											{job?.education}
+										</>
+									)}
+								</S.DetailIntroSubInfo>
+								<S.DetailIntroSubInfo>
+									{job?.career && (
+										<>
+											<GrPersonalComputer style={{ marginRight: '4px' }} />
+											{job?.career}
+										</>
+									)}
+								</S.DetailIntroSubInfo>
 
-					{job?.jobDetail?.procedure && (
-						<>
-							<S.DescriptionTitle>💼 지원 절차</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{job?.jobDetail?.procedure}</S.DescriptionItemWrapper>
-							<br />
-						</>
-					)}
+								<S.ApplyPeriod>
+									{job?.postedAt && job?.expiredAt ? (
+										<>
+											{'('}
+											{job?.postedAt} ~ {job?.expiredAt} <strong>{`(${getDateAgoText(job?.expiredAt)})`}</strong>
+											{')'}
+										</>
+									) : (
+										<>
+											{'('}
+											<strong>상시 모집</strong>
+											{')'}
+										</>
+									)}
+								</S.ApplyPeriod>
+							</S.DetailIntroSubInfoWrapper>
 
-					{job?.jobDetail?.benefit && (
-						<>
-							<S.DescriptionTitle>🎉 복지 및 혜택</S.DescriptionTitle>
-							<S.DescriptionItemWrapper>{job?.jobDetail?.benefit}</S.DescriptionItemWrapper>
-							<br />
-						</>
-					)}
-
-					{job?.tags && job?.tags.length > 0 && (
-						<>
-							<S.DescriptionTitle>🛠 기술스택 ・ 툴</S.DescriptionTitle>
-							<S.TechStacksWrapper>
+							{job?.tags && job?.tags.length > 0 && (
 								<S.TechStacks>
 									{job?.tags.map((tag, idx) => {
 										return (
-											<Chip key={idx} paddingColumn="4px" paddingRow="8px" borderRadius="10px">
+											<Chip key={idx} paddingColumn="4px" paddingRow="8px" borderRadius="1.5em">
 												{tag}
 											</Chip>
 										);
 									})}
 								</S.TechStacks>
-							</S.TechStacksWrapper>
-						</>
-					)}
-				</S.DetailDescription>
+							)}
+
+							<S.DetailIntroBtnWrapper>
+								<Button
+									type="button"
+									onClick={handleCopyURLInClipboard}
+									buttonType="normal"
+									padding="0.5em 1em"
+									borderRadius="1em"
+									fontSize="1rem"
+								>
+									<img src={ClipIcon} alt="" style={{ marginRight: '6px' }} />
+									공고 링크 복사
+								</Button>
+								<S.LinkButton href={`${job?.applyUrl}`} target="_blank">
+									<img src={CheckIcon} alt="" style={{ marginRight: '6px' }} />
+									지원하기
+								</S.LinkButton>
+							</S.DetailIntroBtnWrapper>
+						</S.DetailIntroWrapper>
+
+						<S.DetailContentsWrapper>
+							{job?.jobDetail?.summary && (
+								<>
+									<S.DescriptionTitle>공고 요약</S.DescriptionTitle>
+									<S.Description>{job?.jobDetail?.summary}</S.Description>
+									<br />
+								</>
+							)}
+
+							{job?.jobDetail?.introduction && (
+								<>
+									<S.DescriptionTitle>회사 소개</S.DescriptionTitle>
+									<S.Description>{job?.jobDetail?.introduction}</S.Description>
+									<br />
+								</>
+							)}
+
+							{job?.jobDetail?.mainTask && (
+								<>
+									<S.DescriptionTitle>주요 업무</S.DescriptionTitle>
+									<S.Description>{job?.jobDetail?.mainTask}</S.Description>
+									<br />
+								</>
+							)}
+
+							{job?.jobDetail?.qualification && (
+								<>
+									<S.DescriptionTitle>자격 요건</S.DescriptionTitle>
+									<S.Description>{job?.jobDetail?.qualification}</S.Description>
+									<br />
+								</>
+							)}
+
+							{job?.jobDetail?.procedure && (
+								<>
+									<S.DescriptionTitle>지원 절차</S.DescriptionTitle>
+									<S.Description>{job?.jobDetail?.procedure}</S.Description>
+									<br />
+								</>
+							)}
+
+							{job?.jobDetail?.benefit && (
+								<>
+									<S.DescriptionTitle>복지 및 혜택</S.DescriptionTitle>
+									<S.Description>{job?.jobDetail?.benefit}</S.Description>
+									<br />
+								</>
+							)}
+						</S.DetailContentsWrapper>
+					</S.DetailDescription>
+				</S.InnerContainer>
 			</S.Container>
 		</Layout>
 	);
