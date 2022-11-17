@@ -5,7 +5,8 @@ type StyledChipProps = {
 };
 
 export const Container = styled.div<StyledChipProps>`
-	border-radius: 0.25em;
+	padding: 0.6em 1em;
+	border-radius: 1em;
 	background-color: ${({ bgColor }) => bgColor};
 
 	& > div > span {
@@ -32,7 +33,6 @@ export const InnerWrapper = styled.div`
 	position: relative;
 	display: flex;
 	align-items: center;
-	padding: 0.25em 0.5em;
 `;
 
 export const ChipDeleteButtton = styled.button`

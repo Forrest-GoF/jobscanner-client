@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import * as S from './styled';
+import { ArrowDownIcon } from '@/assets/images/icons';
 
 type Props = {
 	placeholder: string;
 	dropdownItems: Array<{ id: number; label: string; name: string; value: string }>;
 	selectedValue: string;
+	backgroundColor: string;
 	onSelectFilterChange: (key: string, value: string) => void;
 };
 
@@ -18,8 +20,13 @@ const Select = (props: Props) => {
 
 	return (
 		<S.Container>
-			<S.SelectButton type="button" onClick={() => setIsVisibleDropdown(!isVisibleDropdown)}>
+			<S.SelectButton
+				type="button"
+				onClick={() => setIsVisibleDropdown(!isVisibleDropdown)}
+				backgroundColor={props.backgroundColor}
+			>
 				{props.placeholder}
+				<img src={ArrowDownIcon} alt={`${props.placeholder} 필터링 펼치기 버튼`} />
 			</S.SelectButton>
 			<S.Dropdown show={isVisibleDropdown}>
 				{props.dropdownItems?.map((dropdownItem) => {

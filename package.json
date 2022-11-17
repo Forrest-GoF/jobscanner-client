@@ -5,8 +5,10 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview"
+		"build": "tsc && vite build && echo '/* /index.html 200' | cat > dist/_redirects",
+		"preview": "vite preview --port 8080",
+		"story:start": "start-storybook",
+		"story:build": "build-storybook"
 	},
 	"dependencies": {
 		"@emotion/react": "^11.10.0",
@@ -20,15 +22,15 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-ga": "^3.3.1",
+		"react-hook-form": "^7.35.0",
 		"react-icons": "^4.4.0",
 		"react-intersection-observer": "^9.4.0",
 		"react-router-dom": "^6.3.0",
-		"recoil": "^0.7.5",
-		"swiper": "^8.3.2"
+		"recoil": "^0.7.5"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.18.10",
-		"@babel/preset-env": "^7.18.10",
+		"@babel/preset-env": "^7.19.4",
 		"@babel/preset-react": "^7.18.6",
 		"@babel/preset-typescript": "^7.18.6",
 		"@emotion/babel-plugin": "^11.10.0",

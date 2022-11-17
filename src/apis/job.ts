@@ -1,18 +1,23 @@
-import { GET, PATH } from '@/constants/api';
+import { GET, PATCH, PATH, PUT } from '@/constants/api';
 import { requester } from '@/apis/requester';
-import { JobListItemsResponse, JobDetailResponse } from '@/types/apis/job';
+import {
+	JobListItemsResponseDto,
+	JobDetailResponseDto,
+	MyBookmarkJobListResponseDto,
+	BookmarkActivateResponseDto,
+} from '@/types/apis/job';
 
 export const getJobs = async (queryString: string) => {
 	const {
 		job: { index },
 	} = PATH;
 
-	const { data } = await requester<JobListItemsResponse>({
+	const { data } = await requester<JobListItemsResponseDto>({
 		method: GET,
 		url: `${index}${queryString && `?${queryString}`}`,
 	});
 
-	return data?.jobs;
+	return data.data.jobs;
 };
 
 export const getJob = async (jobId: number) => {
@@ -20,10 +25,39 @@ export const getJob = async (jobId: number) => {
 		job: { index },
 	} = PATH;
 
-	const { data } = await requester<JobDetailResponse>({
+	const { data } = await requester<JobDetailResponseDto>({
 		method: GET,
 		url: `${index}/${jobId}`,
 	});
 
-	return data;
+	return data.data;
+};
+
+export const updateJobBookmark = async (jobId: number, bookmarkActivated: boolean) => {
+	const {
+		job: { index, bookmarks },
+	} = PATH;
+
+	const { headers, data, status } = await requester<BookmarkActivateResponseDto>({
+		method: PUT,
+		url: `${index}${bookmarks}/${jobId}`,
+		data: {
+			activated: bookmarkActivated,
+		},
+	});
+
+	return { data, status };
+};
+
+export const getBookmarkJobs = async () => {
+	const {
+		job: { index, bookmarks },
+	} = PATH;
+
+	const { headers, data, status } = await requester<MyBookmarkJobListResponseDto>({
+		method: GET,
+		url: `${index}${bookmarks}`,
+	});
+
+	return data.data;
 };

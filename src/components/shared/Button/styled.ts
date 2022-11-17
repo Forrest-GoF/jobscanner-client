@@ -13,7 +13,7 @@ export const Container = styled.div<StyledButtonProps>`
 		color: ${({ buttonType, theme }) => (buttonType === 'primary' ? theme.colors.white : theme.colors.primary[700])};
 		font-size: ${({ fontSize }) => fontSize};
 		font-weight: ${({ buttonType, theme }) =>
-			buttonType === 'primary' ? theme.fontWeight.bold : theme.fontWeight.regular};
+			buttonType === 'primary' ? theme.fontWeight.bold : theme.fontWeight.semiBold};
 	}
 
 	&:hover {

@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
 import * as S from './styled';
-import JobListItem from '@/components/features/JobList/JobListItem';
-import { JobListItemsResponse } from '@/types/apis/job';
+import { JobListItem } from '@/components';
+import { JobListItemResponseDto } from '@/types/apis/job';
 
-const JobList = (props: JobListItemsResponse) => {
+type Props = {
+	jobs: JobListItemResponseDto[];
+};
+
+const JobList = (props: Props) => {
 	const { jobs } = props;
 
 	return (

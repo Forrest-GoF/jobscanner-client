@@ -1,7 +1,7 @@
 import '@emotion/react';
-
 declare module '@emotion/react' {
 	export interface Theme {
+		maxWidth: '1440px';
 		colors: {
 			primary: {
 				100: string;
@@ -12,28 +12,41 @@ declare module '@emotion/react' {
 				600: string;
 				700: string;
 				800: string;
+				900: string;
+			};
+			red: {
+				100: string;
+				200: string;
+				300: string;
+				400: string;
+			};
+			yellow: {
+				100: string;
+				200: string;
+			};
+			orange: {
+				100: string;
+				200: string;
+			};
+			green: {
+				100: string;
+				200: string;
 			};
 			blue: {
 				100: string;
 				200: string;
 				300: string;
 				400: string;
-				500: string;
-				600: string;
-				700: string;
-				800: string;
 			};
+			white: string;
 			grey: {
 				100: string;
+				150: string;
 				200: string;
 				300: string;
 				400: string;
 				500: string;
-				600: string;
-				700: string;
-				800: string;
 			};
-			white: string;
 			black: string;
 		};
 		fontSize: {
@@ -54,6 +67,7 @@ declare module '@emotion/react' {
 			light: number;
 			regular: number;
 			medium: number;
+			semiBold: number;
 			bold: number;
 			strongBold: number;
 		};

@@ -1,46 +1,33 @@
 import styled from '@emotion/styled';
 
-type StyledDropdownProps = {
-	show: boolean;
-};
-
 export const Container = styled.div`
 	position: relative;
 	flex: 1;
 `;
 
-export const SelectButton = styled.button`
+export const SelectButton = styled.button<{ backgroundColor: string }>`
 	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 0.3rem 0.8rem;
-	border: 1px solid ${({ theme }) => theme.colors.grey[400]};
-	border-radius: 0.25em;
-	font-size: 1.1rem;
+	height: 100%;
+	padding: 1em 1.5em;
+	border: none;
+	border-radius: 0.8rem;
+	font-size: 1rem;
 	font-weight: ${({ theme }) => theme.fontWeight.regular};
 	text-align: left;
-	background-color: transparent;
+	color: ${({ theme }) => theme.colors.grey[500]};
+	background-color: ${({ backgroundColor }) => backgroundColor ?? 'transparent'};
 	cursor: pointer;
-
-	&:after {
-		content: '';
-		display: inline-block;
-		margin-left: 0.255em;
-		vertical-align: 0.255em;
-		border-top: 0.3em solid;
-		border-right: 0.3em solid transparent;
-		border-bottom: 0;
-		border-left: 0.3em solid transparent;
-	}
 
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.grey[100]};
 	}
 `;
 
-export const Dropdown = styled.div<StyledDropdownProps>`
+export const Dropdown = styled.div<{ show: boolean }>`
 	position: absolute;
 	display: ${({ show }) => (show ? 'block' : 'none')};
 	padding: 1rem;
@@ -64,6 +51,7 @@ export const DropdownRadioInput = styled.input`
 export const DropdownRadioInputLabel = styled.label`
 	width: 100%;
 	cursor: pointer;
+	font-size: 0.875rem;
 
 	&:hover {
 		color: ${({ theme }) => theme.colors.primary[700]};

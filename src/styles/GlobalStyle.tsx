@@ -1,8 +1,5 @@
 import { css, Global } from '@emotion/react';
 import reset from 'emotion-reset';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 const GlobalStyle = () => {
 	return (
@@ -56,6 +53,12 @@ const GlobalStyle = () => {
 				ul,
 				li {
 					list-style: none;
+				}
+
+				button,
+				a {
+					padding: 0;
+					line-height: normal;
 				}
 			`}
 		/>
