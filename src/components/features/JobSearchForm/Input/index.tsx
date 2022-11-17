@@ -1,8 +1,8 @@
-import * as S from './styled';
-import { RiStackLine } from 'react-icons/ri';
-import { useQuery } from '@tanstack/react-query';
-import { getTechTags } from '@/apis/tag';
 import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import * as S from './styled';
+import { getTechTags } from '@/apis/tag';
+import { SearchIcon } from '@/components';
 
 type Props = {
 	placeholder: string;
@@ -13,7 +13,10 @@ const Input = (props: Props) => {
 	const [keyword, setKeyword] = useState('');
 	const [autocompleteItems, setAutoCompleteItems] = useState<string[]>();
 
-	const { data: tags } = useQuery(['getTechTags'], getTechTags);
+	const { data: tags } = useQuery(['getTechTags'], () => getTechTags(), {
+		refetchInterval: false,
+		retry: 1,
+	});
 
 	const handleSearchedKeywordClick = (event: React.MouseEvent<HTMLLIElement>) => {
 		if (!event.currentTarget.textContent) return;
@@ -45,9 +48,10 @@ const Input = (props: Props) => {
 				name="tags"
 				value={keyword}
 				autoComplete="off"
+				backgroundColor="#D4DEFF"
 				onChange={handleKeywordInputChange}
 			/>
-			<RiStackLine />
+			<SearchIcon stroke="#7197EF" />
 			{autocompleteItems && (
 				<S.AutoCompleteWrapper>
 					<S.AutoCompleteList>

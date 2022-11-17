@@ -2,59 +2,68 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const Container = styled.li`
-	padding: 24px;
+	padding: 30px;
 	border: 1px solid transparent;
-	border-radius: 4px;
-	background-color: ${({ theme }) => theme.colors.white};
-	-webkit-box-shadow: 0 1px 2px rgb(56 65 74 / 15%);
-	box-shadow: 0 1px 2px rgb(56 65 74 / 15%);
-	transition: transform 0.2s;
+	border-radius: 30px;
+	background-color: ${({ theme }) => theme.colors.primary[100]};
 	cursor: pointer;
 
 	&:hover {
-		border: 1px solid ${({ theme }) => theme.colors.primary[300]};
-		transform: translate3d(0, -6px, 0);
-		-webkit-box-shadow: 1px 1px 6px 1px #66bfc8;
-		box-shadow: 1px 1px 6px 1px #66bfc8;
+		border: 1px solid ${({ theme }) => theme.colors.primary[600]};
 	}
 `;
 
 export const InnerContainer = styled(Link)`
 	display: flex;
+	align-items: center;
 	text-decoration: none;
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div<{ bgImageSrc: string }>`
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-width: 72px;
-	max-width: 72px;
-	height: 72px;
+	width: 80px;
+	min-width: 80px;
+	max-width: 80px;
+	height: 80px;
 	margin-right: 16px;
-	background-color: lightgray;
+	border-radius: 18px;
+	background-color: white;
+	background-image: ${({ bgImageSrc }) => bgImageSrc && `url(${bgImageSrc})`};
+	background-repeat: no-repeat;
+	background-size: 80% 80%;
+	background-position: center;
+	backface-visibility: hidden;
 `;
 
 export const Image = styled.img`
 	width: 100%;
 	object-fit: cover;
+	border-radius: 18px;
 `;
 
 export const DesciptionWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	justify-content: center;
 	width: 100%;
 	color: ${({ theme }) => theme.colors.black};
 `;
 
 export const Title = styled.h3`
-	font-size: ${({ theme }) => theme.fontSize.fs20};
+	margin-bottom: 3px;
+	font-size: 1rem;
 	font-weight: ${({ theme }) => theme.fontWeight.bold};
-	line-height: ${({ theme }) => theme.lineHeight.lh20};
+	line-height: 1rem;
 `;
 
-export const CompanyName = styled.p``;
+export const CompanyName = styled.p`
+	margin-bottom: 10px;
+	font-size: 1rem;
+	line-height: 1rem;
+`;
 
 export const ExpiredDate = styled.p`
 	color: ${({ theme }) => theme.colors.grey[400]};
@@ -64,22 +73,21 @@ export const ExpiredDate = styled.p`
 	}
 `;
 
-export const SubInfoWrapper = styled.span`
+export const PlatformWrapper = styled.span`
+	position: relative;
 	display: flex;
-	gap: 8px;
+	gap: 16px;
+	margin-bottom: 0.5em;
 `;
 
-export const SubInfo = styled.span`
+export const Platform = styled.span`
 	display: flex;
 	align-items: center;
+	font-size: 0.875rem;
 	color: ${({ theme }) => theme.colors.grey[400]};
 
-	& > svg {
+	& > img {
 		margin-right: 4px;
-	}
-
-	& > svg > path {
-		stroke: ${({ theme }) => theme.colors.grey[400]};
 	}
 `;
 

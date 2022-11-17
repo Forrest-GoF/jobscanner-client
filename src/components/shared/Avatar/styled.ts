@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { StyledContainerProps } from './type';
 
-export const Container = styled.div<StyledContainerProps>`
+export const Container = styled.div<{ size: string }>`
 	position: relative;
 	display: flex;
 	align-items: center;

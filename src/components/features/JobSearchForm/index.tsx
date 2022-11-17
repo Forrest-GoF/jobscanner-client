@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import Input from './Input';
-import Select from './Select';
-import Chip from './Chip';
+import { SearchInput, SearchDropdown , SearchFilterChip, ResetIcon } from '@/components'
 import * as S from './styled';
 import { JOB_SEARCH_SELECT_ITEMS } from '@/constants/job';
+import { theme } from '@/styles';
 
 type Props = {
 	onJobSearchQueryStringChange: (queryString: string) => void;
@@ -24,6 +23,8 @@ const JobSearchForm = (props: Props) => {
 		minSalary: '',
 		sortedBy: '',
 	});
+
+	const { colors } = theme;
 
 	const handleKeywordChange = (key: string, value: string) => {
 		const newKeywords = Array.from(new Set([...selectedFilter.tags, value]));
@@ -77,84 +78,87 @@ const JobSearchForm = (props: Props) => {
 
 	return (
 		<S.Container>
-			<S.InputWrapper>
-				<Input placeholder="기술 스택 검색" onKeywordChange={handleKeywordChange} />
-			</S.InputWrapper>
-			<S.SelectWrapper>
-				{JOB_SEARCH_SELECT_ITEMS.map((selectItem) => {
-					return (
-						<Select
-							key={selectItem.id}
-							placeholder={selectItem.placeholder}
-							dropdownItems={selectItem.dropdownItems}
-							selectedValue={selectedFilter[selectItem.dropdownItems[0]?.name]}
-							onSelectFilterChange={handleSelectFilterChange}
-						/>
-					);
-				})}
-			</S.SelectWrapper>
+			<S.InputsWrapper>
+				<SearchInput placeholder="기술 스택 검색" onKeywordChange={handleKeywordChange} />
+				<S.SelectWrapper>
+					{JOB_SEARCH_SELECT_ITEMS.map((selectItem) => {
+						return (
+							<SearchDropdown
+								key={selectItem.id}
+								placeholder={selectItem.placeholder}
+								dropdownItems={selectItem.dropdownItems}
+								selectedValue={selectedFilter[selectItem.dropdownItems[0]?.name]}
+								backgroundColor={theme.colors.blue[100]}
+								onSelectFilterChange={handleSelectFilterChange}
+							/>
+						);
+					})}
+				</S.SelectWrapper>
+			</S.InputsWrapper>
+
 			{isSelectedSomeFilter() && (
 				<S.SelectedFilterChips>
 					{selectedFilter.tags?.map((tag, idx) => {
 						return (
-							<Chip
+							<SearchFilterChip
 								key={idx}
-								color="#e17055"
-								bgColor="#f9e2dd"
+								color={`${colors.primary[800]}`}
+								bgColor={`${colors.primary[300]}`}
 								filterKey="tags"
 								filterValue={tag}
 								onChipDelete={handleChipDelete}
 							>
 								{tag}
-							</Chip>
+							</SearchFilterChip>
 						);
 					})}
 					{selectedFilter.type && (
-						<Chip
-							color="#0095a3"
-							bgColor="#cceaed"
+						<SearchFilterChip
+							color={`${colors.blue[400]}`}
+							bgColor={`${colors.blue[200]}`}
 							filterKey={'type'}
 							filterValue={selectedFilter.type}
 							onChipDelete={handleChipDelete}
 						>
 							{selectedFilter.type && `${selectedFilter.type}`}
-						</Chip>
+						</SearchFilterChip>
 					)}
 					{selectedFilter.minEmployees && (
-						<Chip
-							color="#0984e3"
-							bgColor="#cee6f9"
+						<SearchFilterChip
+							color={`${colors.green[200]}`}
+							bgColor={`${colors.green[100]}`}
 							filterKey="minEmployees"
 							filterValue={selectedFilter.minEmployees}
 							onChipDelete={handleChipDelete}
 						>
 							{selectedFilter.minEmployees}명 이상
-						</Chip>
+						</SearchFilterChip>
 					)}
 					{selectedFilter.minSalary && (
-						<Chip
-							color="#6c5ce7"
-							bgColor="#e2defa"
+						<SearchFilterChip
+							color={`${colors.orange[200]}`}
+							bgColor={`${colors.yellow[100]}`}
 							filterKey="minSalary"
 							filterValue={selectedFilter.minSalary}
 							onChipDelete={handleChipDelete}
 						>
 							{selectedFilter.minSalary}원 이상
-						</Chip>
+						</SearchFilterChip>
 					)}
 					{selectedFilter.sortedBy && (
-						<Chip
-							color="#636e72"
-							bgColor="#e0e2e3"
+						<SearchFilterChip
+							color={`${colors.grey[500]}`}
+							bgColor={`${colors.grey[200]}`}
 							filterKey="sortedBy"
 							filterValue={selectedFilter.sortedBy}
 							onChipDelete={handleChipDelete}
 						>
 							{selectedFilter.sortedBy === 'POSTED' ? '최신순' : '마감순'}
-						</Chip>
+						</SearchFilterChip>
 					)}
 
 					<S.SelectedFilterResetButton type="button" onClick={handleSelectedFilterReset}>
+						<ResetIcon />
 						전체 초기화
 					</S.SelectedFilterResetButton>
 				</S.SelectedFilterChips>

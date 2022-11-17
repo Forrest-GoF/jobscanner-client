@@ -1,6 +1,5 @@
-import { useRef } from 'react';
 import * as S from './styled';
-import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { CloseIcon } from '@/assets/images/icons';
 
 type Props = {
 	color: string;
@@ -21,7 +20,7 @@ const Chip = (props: Props) => {
 			<S.InnerWrapper>
 				<span>{props.children}</span>
 				<S.ChipDeleteButtton type="button">
-					<IoIosCloseCircleOutline />
+					<img src={CloseIcon} alt="필터링 아이템 삭제 버튼" />
 				</S.ChipDeleteButtton>
 			</S.InnerWrapper>
 		</S.Container>

@@ -12,6 +12,6 @@ export type StyledButtonProps = {
 export type Props = {
 	type: 'button' | 'submit' | 'reset';
 	disabled?: boolean;
-	onClick: () => void;
+	onClick?: () => void;
 } & StyledButtonProps &
 	PropsWithChildren;
