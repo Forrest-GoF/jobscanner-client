@@ -1,27 +1,31 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
+	flex: 8;
 	position: relative;
+	margin-right: 1.2em;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<{ backgroundColor: string }>`
 	width: 100%;
-	padding: 0.3rem 0rem 0.3rem 2.2rem;
-	border: 1px solid ${({ theme }) => theme.colors.grey[400]};
-	border-radius: 0.25em;
-	font-size: 1.1rem;
+	height: 100%;
+	padding: 0.3em 0 0.3em 3.5em;
+	border: none;
+	border-radius: 0.8rem;
+	font-size: 1rem;
+	background-color: ${({ backgroundColor }) => backgroundColor ?? 'transprant'};
 	outline: none;
 
 	& + svg {
 		position: absolute;
-		top: 7px;
-		left: 8px;
+		top: 17px;
+		left: 20px;
 		font-size: 1.5rem;
 		fill: ${({ theme }) => theme.colors.grey[400]};
 	}
 
 	&::placeholder {
-		color: ${({ theme }) => theme.colors.grey[400]};
+		color: ${({ theme }) => theme.colors.grey[500]};
 	}
 
 	&:focus {
@@ -35,6 +39,7 @@ export const Input = styled.input`
 
 export const AutoCompleteWrapper = styled.div`
 	position: absolute;
+	top: 64px;
 	width: 100%;
 	max-height: 230px;
 	border-radius: 0.5rem;

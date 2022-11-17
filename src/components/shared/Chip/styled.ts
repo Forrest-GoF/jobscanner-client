@@ -9,6 +9,13 @@ export const Container = styled.div<StyledContainerProps>`
 	border: 1px solid ${({ theme }) => theme.colors.primary[800]};
 	border-radius: ${({ borderRadius }) => borderRadius};
 	background-color: ${({ theme }) => theme.colors.primary[100]};
+	font-size: ${({ fontSize }) => fontSize && fontSize};
 `;
 
-export const Wrapper = styled.span``;
+export const Wrapper = styled.span`
+	max-width: 80px;
+	padding: 3px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+`;

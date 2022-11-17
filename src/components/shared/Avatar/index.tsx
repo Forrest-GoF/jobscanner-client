@@ -1,6 +1,9 @@
-import React from 'react';
 import * as S from './styled';
-import { Props } from './type';
+
+export type Props = {
+	size: string;
+	imgSrc: string | undefined;
+};
 
 const Avatar = (props: Props) => {
 	return (

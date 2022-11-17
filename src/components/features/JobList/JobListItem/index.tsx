@@ -1,59 +1,62 @@
-import { Link } from 'react-router-dom';
+import { Chip } from '@/components';
 import * as S from './styled';
-import { JobListItemResponse } from '@/types/apis/job';
-import Chip from '@/components/shared/Chip';
-import { GrBriefcase, GrMoney } from 'react-icons/gr';
-import { TECH_STACK_SHOW_START, TECH_STACK_SHOW_END } from '@/constants/job';
-import { getDateAgoText } from '@/utils/day';
+import { JobListItemResponseDto } from '@/types/apis/job';
+import { PlatformIcon, SymbolIcon } from '@/assets/images/icons';
+import { TECH_STACK_SHOW_START, TECH_STACK_SHOW_END, TECH_STACK_EMPTY } from '@/constants/job';
 
-const JobListItem = ({ job }: { job: JobListItemResponse }) => {
+const JobListItem = ({ job }: { job: JobListItemResponseDto }) => {
 	return (
 		<S.Container>
 			<S.InnerContainer to={`/jobs/${job.id}`}>
-				<S.ImageWrapper>
-					<S.Image src={job.companyThumbnail} alt={`${job.companyName} 로고`} />
-				</S.ImageWrapper>
+				<S.ImageWrapper bgImageSrc={`${job.companyThumbnail ?? SymbolIcon}`} />
 				<S.DesciptionWrapper>
 					<S.Title>{job.title}</S.Title>
 					<S.CompanyName>{job.companyName}</S.CompanyName>
-					{!job.expiredAt ? (
-						<S.ExpiredDate>상시 모집</S.ExpiredDate>
-					) : (
-						<S.ExpiredDate>
-							마감일 : {job.expiredAt} <strong>{`(${getDateAgoText(job.expiredAt)})`}</strong>
-						</S.ExpiredDate>
-					)}
 
-					<S.SubInfoWrapper>
-						<S.SubInfo>
-							<GrBriefcase />
+					<S.PlatformWrapper>
+						<S.Platform>
+							<img src={PlatformIcon} alt="" />
 							{job.platform}
-						</S.SubInfo>
-						<S.SubInfo>
-							<GrMoney />
-							{job.salary ? job.salary : '회사 내규'}
-						</S.SubInfo>
-					</S.SubInfoWrapper>
+						</S.Platform>
+					</S.PlatformWrapper>
+
 					{job.tags && (
 						<S.TechStacksWrapper>
 							{job.tags.length > TECH_STACK_SHOW_END
 								? job.tags.slice(TECH_STACK_SHOW_START, TECH_STACK_SHOW_END).map((stack, idx) => {
 										return (
-											<Chip paddingColumn="4px" paddingRow="8px" borderRadius="10px" key={idx}>
+											<Chip
+												key={idx}
+												paddingColumn="0.125em"
+												paddingRow="0.375em"
+												borderRadius="10px"
+												fontSize="0.875rem"
+											>
 												{stack}
 											</Chip>
 										);
 								  })
 								: job.tags.map((tag, idx) => {
 										return (
-											<Chip paddingColumn="4px" paddingRow="8px" borderRadius="10px" key={idx}>
+											<Chip
+												key={idx}
+												paddingColumn="0.125em"
+												paddingRow="0.375em"
+												borderRadius="10px"
+												fontSize="0.875rem"
+											>
 												{tag}
 											</Chip>
 										);
 								  })}
 							{job.tags.length > TECH_STACK_SHOW_END && (
-								<Chip paddingColumn="4px" paddingRow="8px" borderRadius="10px">
+								<Chip paddingColumn="0.125em" paddingRow="0.375em" borderRadius="10px" fontSize="0.875rem">
 									외 {job.tags.slice(TECH_STACK_SHOW_END).length}개
+								</Chip>
+							)}
+							{job.tags.length === TECH_STACK_EMPTY && (
+								<Chip paddingColumn="0.125em" paddingRow="0.375em" borderRadius="10px" fontSize="0.875rem">
+									등록 X
 								</Chip>
 							)}
 						</S.TechStacksWrapper>
