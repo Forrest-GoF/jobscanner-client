@@ -1,0 +1,17 @@
+export { default as ArrowDownIcon } from './arrow_down.svg';
+export { default as BookmarkOffIcon } from './bookmark_off.svg';
+export { default as BookmarkOnIcon } from './bookmark_on.svg';
+export { default as CameraIcon } from './camera.svg';
+export { default as CareerIcon } from './career.svg';
+export { default as CheckIcon } from './check.svg';
+export { default as CloseIcon } from './close.svg';
+export { default as KanbanIcon } from './kanban.svg';
+export { default as ClipIcon } from './clip.svg';
+export { default as LogoIcon } from './logo.svg';
+export { default as MascotFull } from './mascot_full.svg';
+export { default as Mascot } from './mascot.svg';
+export { default as PlatformIcon } from './platform.svg';
+export { default as ProfileDefaultIcon } from './profile_default.svg';
+export { default as SymbolIcon } from './symbol.svg';
+export { default as SalaryIcon } from './salary.svg';
+export { default as SearchIcon } from './search.svg';

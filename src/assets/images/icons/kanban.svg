@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="sub_kanban_icon" transform="translate(-0.5)">
+    <rect id="사각형_81" data-name="사각형 81" width="20" height="20" transform="translate(0.5)" fill="#af2020" opacity="0"/>
+    <g id="그룹_45" data-name="그룹 45" transform="translate(1 1)">
+      <rect id="사각형_50" data-name="사각형 50" width="8" height="8" rx="2" transform="translate(0.5)" fill="#c8acff"/>
+      <rect id="사각형_52" data-name="사각형 52" width="8" height="8" rx="2" transform="translate(0.5 10)" fill="#c8acff"/>
+      <rect id="사각형_51" data-name="사각형 51" width="8" height="8" rx="2" transform="translate(10.5)" fill="#c8acff"/>
+      <rect id="사각형_53" data-name="사각형 53" width="8" height="8" rx="2" transform="translate(10.5 10)" fill="#c8acff"/>
+    </g>
+  </g>
+</svg>

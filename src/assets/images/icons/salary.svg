@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_35" data-name="사각형 35" width="15" height="15" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="main_list_salary_icon" transform="translate(-257 -124)">
+    <rect id="사각형_36" data-name="사각형 36" width="16" height="16" transform="translate(257 124)" fill="#882828" opacity="0"/>
+    <g id="그룹_32" data-name="그룹 32" transform="translate(257 125)">
+      <g id="그룹_31" data-name="그룹 31" clip-path="url(#clip-path)">
+        <circle id="타원_4" data-name="타원 4" cx="7" cy="7" r="7" transform="translate(0.5 0.5)" fill="none" stroke="#989898" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="패스_13" data-name="패스 13" d="M4.648,6.129,5.955,8.872,7.5,6.129" fill="none" stroke="#989898" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="패스_14" data-name="패스 14" d="M7.5,6.129,8.807,8.872l1.544-2.743" fill="none" stroke="#989898" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
