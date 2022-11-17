@@ -1,15 +1,11 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { KEYS, getLocalStorageItem } from '@/utils/storage';
+import { RESPONSE_FAIL_UNAUTHORIZED } from '@/constants/api';
+
 const createAxiosInstance = () => {
 	const base = axios.create({
 		baseURL: import.meta.env.VITE_API_BASE_URL,
 	});
-
-	// 응답 후 중간에 개입 로직
-	// base.interceptors.response.use()
-
-	// 요청 전 중간에 개입 로직
-	// base.interceptors.request.use()
 
 	return base;
 };

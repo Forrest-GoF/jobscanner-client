@@ -1,5 +1,5 @@
 import { GET, PATH } from '@/constants/api';
-import { TagResponse } from '@/types/apis/tag';
+import { TagResponseDto } from '@/types/apis/tag';
 import { requester } from './requester';
 
 export const getTechTags = async () => {
@@ -7,10 +7,10 @@ export const getTechTags = async () => {
 		tag: { index },
 	} = PATH;
 
-	const { data } = await requester<TagResponse>({
+	const { data } = await requester<TagResponseDto>({
 		method: GET,
 		url: index,
 	});
 
-	return data;
+	return data.data;
 };
