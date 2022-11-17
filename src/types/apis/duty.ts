@@ -1,5 +1,5 @@
 import { HttpResponseDto } from './common';
 
-export interface TagResponseDto extends HttpResponseDto {
+export interface DutyResponseDto extends HttpResponseDto {
 	data: string[];
 }
