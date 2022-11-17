@@ -7,9 +7,7 @@ const useAnalyticsTracker = () => {
 	const [initialized, setInitialized] = useState(false);
 
 	useEffect(() => {
-		if (!window.location.href.includes('localhost')) {
-			ReactGA.initialize(import.meta.env.VITE_GOOGLE_ANALYTICS_TRACKIG_ID, { debug: true });
-		}
+		ReactGA.initialize(import.meta.env.VITE_GOOGLE_ANALYTICS_TRACKIG_ID);
 		setInitialized(true);
 	}, []);
 
