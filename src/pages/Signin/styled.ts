@@ -9,83 +9,64 @@ export const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: rgb(21, 21, 24);
-	background: -moz-linear-gradient(
-		310deg,
-		rgba(21, 21, 24, 1) 49%,
-		rgba(255, 255, 255, 1) 50%,
-		rgba(0, 149, 163, 1) 51%
-	);
-	background: -webkit-linear-gradient(
-		310deg,
-		rgba(21, 21, 24, 1) 49%,
-		rgba(255, 255, 255, 1) 50%,
-		rgba(0, 149, 163, 1) 51%
-	);
-	background: linear-gradient(310deg, rgba(21, 21, 24, 1) 49%, rgba(255, 255, 255, 1) 50%, rgba(0, 149, 163, 1) 51%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#151518",endColorstr="#0095a3",GradientType=1);
+	background: #3b3b3b 0% 0% no-repeat padding-box;
 	min-height: 100vh;
-`;
-
-export const Overlay = styled.div`
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
 `;
 
 export const InnerContainer = styled.div`
 	position: relative;
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 80%;
 	padding: 0 10%;
 	z-index: 2;
 `;
 
-export const BannerWrapper = styled.div`
-	position: relative;
-	flex: 3;
-	max-width: 50%;
-	padding: 30px;
-`;
+export const LinkList = styled.ul`
+	display: flex;
+	width: 40%;
+	margin: 0 auto;
+	background-color: ${({ theme }) => theme.colors.grey[100]};
+	border-radius: 0.5em 0.5em 0 0;
 
-export const BannerDescriptionWrapper = styled.div`
-	& > span {
-		display: block;
-		margin-bottom: 16px;
-		font-size: ${({ theme }) => theme.fontSize.fs16};
-		font-weight: ${({ theme }) => theme.fontWeight.medium};
-		color: ${({ theme }) => theme.colors.grey[100]};
-	}
-
-	& > p {
-		font-size: 1.5rem;
-		font-weight: ${({ theme }) => theme.fontWeight.bold};
-		line-height: 2.2rem;
-		color: ${({ theme }) => theme.colors.white};
+	& > li {
+		flex: 1;
+		padding: 1em;
+		text-align: center;
 	}
 `;
 
-export const LoginWrapper = styled.div`
+export const LinkListItem = styled.li<{ selected: boolean }>`
+	border-radius: 0.5em 0.5em 0 0;
+	background-color: ${({ theme, selected }) => (selected ? theme.colors.white : theme.colors.grey[100])};
+	font-size: 1rem;
+	font-weight: ${({ theme, selected }) => (selected ? theme.fontWeight.bold : theme.fontWeight.regular)};
+
+	& > a {
+		text-decoration: none;
+		color: ${({ theme, selected }) => (selected ? theme.colors.primary[600] : theme.colors.grey[500])};
+	}
+`;
+
+export const FormContentWrapper = styled.div`
 	position: relative;
-	flex: 2;
-	max-width: 40%;
+	width: 40%;
 	height: inherit;
 	margin: auto;
-	padding: 30px;
-	border-radius: 0.5em;
+	padding: 1em 1.8em;
+	border-radius: 0 0 0.5em 0.5em;
 	background-color: white;
 `;
 
-export const LoginDesciptionPanel = styled.div`
-	margin-bottom: 1.5rem;
+export const LogoBanner = styled.div`
+	padding: 1.5em 0;
 	font-size: ${({ theme }) => theme.fontSize.fs20};
 	font-weight: ${({ theme }) => theme.fontWeight.strongBold};
 	text-align: center;
 `;
 
-export const LoginTitle = styled.h2`
+export const Title = styled.h2`
 	& > a {
 		text-decoration: none;
 		color: ${({ theme }) => theme.colors.black};
@@ -97,30 +78,28 @@ export const LoginTitle = styled.h2`
 	}
 `;
 
-export const LoginSubTitle = styled.h3``;
+export const SubTitle = styled.h3``;
 
-export const LoginForm = styled.form`
+export const Form = styled.form`
 	margin-bottom: 1.5rem;
 `;
 
-export const LoginFormInputContainer = styled.div`
+export const FormInputContainer = styled.div`
 	margin-bottom: 1rem;
 `;
 
-export const LoginFormLabel = styled.label`
+export const FormLabel = styled.label`
 	display: block;
 	margin-bottom: 0.5rem;
 	font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
-export const LoginFormInputWrapper = styled.div`
-	display: flex;
-	align-items: center;
+export const FormInputWrapper = styled.div`
 	position: relative;
 	font-size: 1.25rem;
 `;
 
-export const LoginFormInputIconWrapper = styled.span`
+export const FormInputIconWrapper = styled.span`
 	position: absolute;
 	left: 0.8rem;
 
@@ -131,9 +110,9 @@ export const LoginFormInputIconWrapper = styled.span`
 	}
 `;
 
-export const LoginFormInput = styled.input`
+export const FormInput = styled.input<{ padding: string }>`
 	width: 100%;
-	padding: 0.5rem 2rem 0.5rem 2.5rem;
+	padding: ${({ padding }) => padding && padding};
 	border-radius: 0.25rem;
 
 	&:focus {
@@ -141,14 +120,15 @@ export const LoginFormInput = styled.input`
 	}
 `;
 
-export const LoginFormSubmitButtonWrapper = styled.div``;
+export const FormSubmitButtonWrapper = styled.div``;
 
-export const LoginFormSubmitButton = styled.button`
+export const FormSubmitButton = styled.button`
 	width: 100%;
 	padding: 0.5rem 0;
-	background-color: ${({ theme }) => theme.colors.primary[800]};
-	border: 2px solid ${({ theme }) => theme.colors.primary[800]};
+	background-color: ${({ theme }) => theme.colors.primary[600]};
+	border: 2px solid ${({ theme }) => theme.colors.primary[600]};
 	border-radius: 0.25rem;
+	color: ${({ theme }) => theme.colors.white};
 	cursor: pointer;
 
 	&:hover {
@@ -212,4 +192,20 @@ export const PolicyDescription = styled.a`
 	color: ${({ theme }) => theme.colors.black};
 	text-decoration: underline;
 	cursor: pointer;
+`;
+
+export const FormErrorMessage = styled.span`
+	font-size: 0.8rem;
+	color: ${({ theme }) => theme.colors.red[400]};
+`;
+
+export const Underlay = styled.div`
+	position: absolute;
+	right: 5%;
+	bottom: 10%;
+
+	& > img {
+		width: 280px;
+		height: auto;
+	}
 `;

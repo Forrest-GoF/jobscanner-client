@@ -1,36 +1,32 @@
 import { useEffect, useCallback } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { AUTHORIZATION_CODE_SEPERATORS } from '@/constants/auth';
-import { socialLogin } from '@/apis/auth';
-import { RESPONSE_SUCCESS_CREATED, RESPONSE_SUCCESS_OK } from '@/constants/api';
-import { KEYS, setLocalStorageItem } from '@/utils/storage';
-import { userInfoState } from '@/stores/user';
 import { useSetRecoilState } from 'recoil';
 import * as Sentry from '@sentry/react';
 import * as S from './styled';
+import { memberState } from '@/stores/member';
+import { getMember } from '@/apis/member';
+import { RESPONSE_SUCCESS_CREATED, RESPONSE_SUCCESS_OK } from '@/constants/api';
+import { KEYS, setLocalStorageItem } from '@/utils/storage';
 
 const OAuthRedirect = () => {
 	const { social } = useParams();
 	const locator = useLocation();
 	const navigator = useNavigate();
-	const setUserInfo = useSetRecoilState(userInfoState);
+	const setMemberState = useSetRecoilState(memberState);
 
-	const handleSocialLogin = useCallback(async () => {
+	const dispatchTokenAndMember = useCallback(async () => {
 		if (!social) return;
 
-		let authorizationCode =
-			social === 'google'
-				? locator.search.split(AUTHORIZATION_CODE_SEPERATORS)[1].split('&')[0]
-				: locator.search.split(AUTHORIZATION_CODE_SEPERATORS)[1];
-
 		try {
-			const { data, status } = await socialLogin(authorizationCode, social);
+			const urlParams = new URLSearchParams(window.location.search);
+			const jobScannerAccessToken = urlParams.get('appToken');
 
-			setLocalStorageItem(KEYS.JOB_SCANNER_ACCESS_TOKEN, data.appToken);
-			setLocalStorageItem(KEYS.JOB_SCANNER_REFRESH_TOKEN, data.refreshToken);
-			setUserInfo(data.memberResponse);
+			setLocalStorageItem(KEYS.JOB_SCANNER_ACCESS_TOKEN, jobScannerAccessToken);
+
+			const { data, status } = await getMember();
 
 			if (status === RESPONSE_SUCCESS_OK) {
+				setMemberState(data.data);
 				navigator('/');
 			}
 
@@ -38,12 +34,13 @@ const OAuthRedirect = () => {
 				navigator('/onboarding');
 			}
 		} catch (error) {
+			console.error(error);
 			Sentry.captureException(error);
 		}
 	}, []);
 
 	useEffect(() => {
-		handleSocialLogin();
+		dispatchTokenAndMember();
 	}, []);
 
 	return (
